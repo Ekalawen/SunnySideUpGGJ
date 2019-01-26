@@ -16,15 +16,12 @@ public class Player : MonoBehaviour
     CharacterController controller;
     [HideInInspector]
     public Inventaire inventaire;
+    private GameManager gameManager;
 
     // Start is called before the first frame update
     void Start()
     {
-        /*
-        m_Rigidbody = GetComponent<Rigidbody>();
-        m_Rigidbody.constraints = RigidbodyConstraints.FreezePositionX;
-        m_Rigidbody.constraints = RigidbodyConstraints.FreezeRotation;
-        */
+        gameManager = FindObjectOfType<GameManager>();
         inventaire = new Inventaire();
 
         controller = GetComponent<CharacterController>();
@@ -53,7 +50,8 @@ public class Player : MonoBehaviour
 
         if (Input.GetButtonDown("Interact"))
         {
-            Interaction();
+            if(gameManager.heure != GameManager.Heure.NUIT)
+                Interaction();
         }
     }
 
