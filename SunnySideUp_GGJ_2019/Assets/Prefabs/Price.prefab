@@ -67,7 +67,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 16
+    m_FontSize: 13
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
@@ -76,11 +76,9 @@ MonoBehaviour:
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'Fer :
-
-'
+  m_Text: 'Fer :'
 --- !u!1 &3487785479707012982
 GameObject:
   m_ObjectHideFlags: 0
@@ -98,7 +96,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3487785479707012977
 RectTransform:
   m_ObjectHideFlags: 0
@@ -273,5 +271,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3e63aae6dfec614db1524bd8bec4cf9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prixBois: {fileID: 3487785479707012976}
-  prixFer: {fileID: 3487785479336031393}
+  prix: {fileID: 3487785479336031393}

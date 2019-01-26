@@ -6,8 +6,7 @@ using UnityEngine.UI;
 public class Price : MonoBehaviour
 {
 
-    public Text prixBois;
-    public Text prixFer;
+    public Text prix;
 
     // Start is called before the first frame update
     void Start() {
@@ -19,7 +18,13 @@ public class Price : MonoBehaviour
 
     public void SetupPrix(int _prixBois, int _prixFer)
     {
-        prixBois.text = "Bois : " + _prixBois;
-        prixFer.text = "Fer : " + _prixFer;
+        if (_prixBois > 0 && _prixFer > 0)
+            prix.text = _prixBois + " Bois\n" + _prixFer + " Fer";
+        else if (_prixFer > 0)
+            prix.text = _prixFer + " Fer";
+        else if (_prixBois > 0)
+            prix.text = _prixBois + " Bois";
+        else
+            prix.text = "PAS DE PRIX WTF ! :D";
     }
 }
