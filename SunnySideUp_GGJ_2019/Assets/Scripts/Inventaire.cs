@@ -12,7 +12,7 @@ public class Inventaire {
         // On remplit la liste de valeurs vides
         valeurs = new List<int>();
         for(int i = 0; i < nbTypesRessources; i++) {
-            valeurs.Add(1000);
+            valeurs.Add(0);
         }
     }
 
