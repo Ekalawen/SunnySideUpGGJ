@@ -7,20 +7,29 @@ public class DestructibleBloc : Interactible
 {
     private bool isDestroyed;
 
+    public GameObject meshIntact;
+    public GameObject meshEndommage;
+    public GameObject meshBeaucoupEndommage;
+
     public int resistance;
+    private int resistanceMax;
     public int distanceVisibiliteResistance;
 
     public Text text;
 
     private Player player;
+    private GameManager gameManager;
 
     // Start is called before the first frame update
     void Start() {
         player = FindObjectOfType<Player>();
+        gameManager = FindObjectOfType<GameManager>();
 
         isDestroyed = false;
 
         text.text = "" + resistance;
+
+        resistanceMax = resistance;
 
         transform.GetChild(0).gameObject.SetActive(true);
     }
@@ -42,7 +51,7 @@ public class DestructibleBloc : Interactible
         }
         // Update l'affichage du texte, ne s'affiche que si le joueur est assez proche
         float distance = Vector3.Distance(player.gameObject.transform.position, transform.position);
-        if (distance <= distanceVisibiliteResistance)
+        if (gameManager.heure != GameManager.Heure.NUIT && distance <= distanceVisibiliteResistance)
         {
             text.gameObject.SetActive(true);
         }
@@ -57,7 +66,10 @@ public class DestructibleBloc : Interactible
     {
         base.Interact();
 
-        Miner();
+        if (gameManager.heure != GameManager.Heure.NUIT)
+        {
+            Miner();
+        }
     }
 
     void Miner()
@@ -65,6 +77,16 @@ public class DestructibleBloc : Interactible
         if (resistance > 1)
         {
             resistance--;
+            if((float)resistance  / (float)resistanceMax >= 0.5f) {
+                meshIntact.SetActive(false);
+                meshEndommage.SetActive(true);
+                meshBeaucoupEndommage.SetActive(false);
+            } else
+            {
+                meshIntact.SetActive(false);
+                meshEndommage.SetActive(false);
+                meshBeaucoupEndommage.SetActive(true);
+            }
             text.text = "" + resistance;
         }
         else
