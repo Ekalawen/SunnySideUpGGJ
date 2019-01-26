@@ -19,6 +19,9 @@ public class HUD : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!player || !player.enabled)
+            return;
+
         boisValue.text = ""+player.inventaire.Get(ObjetRessource.TypeRessource.BOIS);
         ferValue.text = ""+player.inventaire.Get(ObjetRessource.TypeRessource.FER);
     }

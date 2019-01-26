@@ -48,6 +48,9 @@ public class ObjectConstructible : Interactible
 
     // Update is called once per frame
     void Update() {
+        if (!player || !player.enabled)
+            return;
+
         // Update l'affichage du prix, ne s'affiche que si le joueur est assez proche
         if (etat == Etat.NON_CONSTRUIT) {
             float distance = Vector3.Distance(player.gameObject.transform.position, transform.position);
