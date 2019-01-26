@@ -52,7 +52,7 @@ public class Player : MonoBehaviour
             }
             if (controller.isGrounded && Input.GetButtonDown("Jump"))
             {
-            StartCoroutine(Jump());
+                StartCoroutine(Jump());
             }
         }
         

@@ -54,8 +54,8 @@ MonoBehaviour:
   priceBois: 2
   priceFer: 0
   distanceVisibilitePrix: 3
-  no_gravity: 0
-  y_axis: 0
+  no_gravity: 1
+  y_axis: 1
 --- !u!65 &8249949948065775094
 BoxCollider:
   m_ObjectHideFlags: 0
