@@ -58,7 +58,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: fa7c8b55872192b4093cdd4425f3a69a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -140,8 +140,10 @@ MonoBehaviour:
   constructible: {fileID: 5789689765913907417}
   construction: {fileID: 5789689765355891261}
   price: {fileID: 5789689766411376024}
+  player: {fileID: 0}
   priceBois: 10
   pricePierre: 5
+  distanceVisibilitePrix: 3
 --- !u!1 &5789689765913907417
 GameObject:
   m_ObjectHideFlags: 0
@@ -200,7 +202,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 036fa17d46441fa42824f3952e0eedd0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

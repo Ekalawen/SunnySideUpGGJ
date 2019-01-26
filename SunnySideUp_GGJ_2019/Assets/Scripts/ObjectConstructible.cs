@@ -5,26 +5,55 @@ using UnityEngine;
 public class ObjectConstructible : MonoBehaviour
 {
 
+    public enum Etat { NON_CONSTRUIT, CONSTRUIT };
+
     public GameObject constructible;
     public GameObject construction;
     public Price price;
+    public Player player;
 
     public int priceBois;
     public int pricePierre;
 
+    public float distanceVisibilitePrix;
+
+    private Etat etat;
+
     // Start is called before the first frame update
     void Start() {
-        // Afficher les bons éléments
-        constructible.SetActive(true);
-        price.gameObject.SetActive(true);
-        construction.SetActive(false);
+        player = FindObjectOfType<Player>();
+
+        // Mettre dans le bon état
+        SetEtat(Etat.NON_CONSTRUIT);
 
         // Mettre à jour les prix
         price.SetupPrix(priceBois, pricePierre);
     }
 
+    public void SetEtat(Etat newEtat) {
+        etat = newEtat;
+        if(etat == Etat.NON_CONSTRUIT) {
+            constructible.SetActive(true);
+            construction.SetActive(false);
+        } else {
+            constructible.SetActive(false);
+            construction.SetActive(true);
+        }
+    }
+
     // Update is called once per frame
     void Update() {
+        // Update l'affichage du prix, ne s'affiche que si le joueur est assez proche
+        if(etat == Etat.NON_CONSTRUIT) {
+            float distance = Vector3.Distance(player.gameObject.transform.position, transform.position);
+            if(distance <= distanceVisibilitePrix) {
+                price.gameObject.SetActive(true);
+            } else {
+                price.gameObject.SetActive(false);
+            }
+        } else {
+            price.gameObject.SetActive(false);
+        }
     }
 
     // Pour construire l'objet
