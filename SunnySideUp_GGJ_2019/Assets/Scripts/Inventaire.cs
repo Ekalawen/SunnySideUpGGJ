@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Inventaire {
-    static int nbTypesRessources = ObjetRessource.TypeRessource.GetValues(typeof(ObjetRessource.TypeRessource)).Length;
+    public static int nbTypesRessources = ObjetRessource.TypeRessource.GetValues(typeof(ObjetRessource.TypeRessource)).Length;
 
     // Une liste du nombre de la quantité de ressources pour chaque type. Dans l'ordre de l'énumération.
     List<int> valeurs;
