@@ -71,6 +71,14 @@ public class GameManager : MonoBehaviour
         float duree = 10.0f;
         float debut = Time.time;
         float avancementDebut = RenderSettings.ambientIntensity;
+        Debug.Log("Dawn");
+        foreach (ObjetRessource o in FindObjectsOfType<ObjetRessource>())
+        {
+            Debug.Log("Respawn");
+            if(o.respawnable)
+                o.Respawn();
+        }
+
         while (heure == Heure.AUBE && Time.time - debut < duree)
         {
             float avancement = (Time.time - debut) / duree;

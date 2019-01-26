@@ -39,11 +39,8 @@ public class DestructibleBloc : Interactible
         // Update l'affichage du texte, ne s'affiche que si le joueur est assez proche
         float distance = Vector3.Distance(player.gameObject.transform.position, transform.position);
         
-        Debug.Log("Distance min = " + distanceVisibiliteResistance);
-        Debug.Log("Le texte = " + text.text);
         if (distance <= distanceVisibiliteResistance)
         {
-            Debug.Log("Distance = " + distance);
             text.gameObject.SetActive(true);
         }
         else
