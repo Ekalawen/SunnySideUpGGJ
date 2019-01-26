@@ -20,9 +20,11 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        /*
         m_Rigidbody = GetComponent<Rigidbody>();
         m_Rigidbody.constraints = RigidbodyConstraints.FreezePositionX;
         m_Rigidbody.constraints = RigidbodyConstraints.FreezeRotation;
+        */
         inventaire = new Inventaire();
 
         controller = GetComponent<CharacterController>();
@@ -49,9 +51,33 @@ public class Player : MonoBehaviour
 
         if (Input.GetButtonDown("Interact"))
         {
-            foreach(Collider c in Physics.OverlapBox(transform.position, new Vector3(1, 1, 3)))
+            Interaction();
+        }
+    }
+
+    void Interaction() {
+        List<Interactible> interactibles = new List<Interactible>();
+        foreach(Collider c in Physics.OverlapSphere(transform.position, 2.0f))
+        {
+            if (c.gameObject.GetComponent<Interactible>() != null)
             {
-                c.gameObject.GetComponent<Interactible>()?.Interact();
+                interactibles.Add(c.gameObject.GetComponent<Interactible>());
+            }
+        }
+
+        float distMin = float.PositiveInfinity;
+        Interactible interactionFinale = null;
+        if(interactibles.Count > 0) {
+            for (int i = 0; i < interactibles.Count; i++) {
+                float dist = Vector3.Distance(transform.position, interactibles[i].gameObject.transform.position);
+                if (dist < distMin)
+                {
+                    distMin = dist;
+                    interactionFinale = interactibles[i];
+                }
+            }
+            if(interactionFinale != null) {
+                interactionFinale.Interact();
             }
         }
     }

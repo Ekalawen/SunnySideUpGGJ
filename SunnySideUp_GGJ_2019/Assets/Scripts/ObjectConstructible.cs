@@ -10,14 +10,14 @@ public class ObjectConstructible : Interactible
     public GameObject constructible;
     public GameObject construction;
     public Price price;
-    public Player player;
 
     public int priceBois;
-    public int pricePierre;
+    public int priceFer;
 
     public float distanceVisibilitePrix;
 
     private Etat etat;
+    private Player player;
 
     // Start is called before the first frame update
     void Start() {
@@ -27,7 +27,7 @@ public class ObjectConstructible : Interactible
         SetEtat(Etat.NON_CONSTRUIT);
 
         // Mettre à jour les prix
-        price.SetupPrix(priceBois, pricePierre);
+        price.SetupPrix(priceBois, priceFer);
     }
 
     public void SetEtat(Etat newEtat) {
@@ -61,7 +61,8 @@ public class ObjectConstructible : Interactible
 
         if(peutConstruire()) {
             // débitter le player
-            /// TODO
+            player.inventaire.Use(ObjetRessource.TypeRessource.BOIS, priceBois);
+            player.inventaire.Use(ObjetRessource.TypeRessource.FER, priceFer);
 
             // Puis on peut construire :)
             Construire();
@@ -70,15 +71,16 @@ public class ObjectConstructible : Interactible
 
     // Pour construire l'objet
     public void Construire() {
-        // Faire payer !
-
         // Afficher les bons éléments
         constructible.SetActive(false);
         construction.SetActive(true);
+
+        etat = Etat.CONSTRUIT;
     }
 
     // Permet de savoir si l'on peut construire cette construction
     public bool peutConstruire() {
-        return true;
+        return player.inventaire.CanUse(ObjetRessource.TypeRessource.BOIS, priceBois)
+        && player.inventaire.CanUse(ObjetRessource.TypeRessource.FER, priceFer);
     }
 }

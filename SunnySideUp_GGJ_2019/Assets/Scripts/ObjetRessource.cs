@@ -27,7 +27,6 @@ public class ObjetRessource : Interactible {
 
     public override void Interact() {
         base.Interact();
-        Debug.Log("Interact de ObjetRessource !");
 
         Miner();
     }
@@ -37,7 +36,6 @@ public class ObjetRessource : Interactible {
             player.inventaire.Add(type, 1);
             quantite--;
             text.text = "" + quantite;
-            Debug.Log("Inventaire = " + player.inventaire.Get(type));
 
             if(quantite == 0)
             {
