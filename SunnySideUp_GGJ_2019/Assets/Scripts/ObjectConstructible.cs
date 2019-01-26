@@ -48,6 +48,9 @@ public class ObjectConstructible : Interactible
 
     // Update is called once per frame
     void Update() {
+        if (!player || !player.enabled)
+            return;
+
         // Update l'affichage du prix, ne s'affiche que si le joueur est assez proche
         if (etat == Etat.NON_CONSTRUIT) {
             float distance = Vector3.Distance(player.gameObject.transform.position, transform.position);
@@ -93,11 +96,9 @@ public class ObjectConstructible : Interactible
         && player.inventaire.CanUse(ObjetRessource.TypeRessource.FER, priceFer);
     }
 
-    public bool estContruit()
+    //permet de savoir si un objetConstructible et construit
+    public bool estConstruit()
     {
-        if (etat == Etat.CONSTRUIT)
-            return true;
-        else
-            return false;
+        return etat == Etat.CONSTRUIT;
     }
 }

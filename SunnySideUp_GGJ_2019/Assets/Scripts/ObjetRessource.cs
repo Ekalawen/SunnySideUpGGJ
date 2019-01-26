@@ -67,6 +67,9 @@ public class ObjetRessource : Interactible {
 
     private void Update()
     {
+        if (!player || !player.enabled)
+            return;
+
         // Update l'affichage du texte, ne s'affiche que si le joueur est assez proche
         float distance = Vector3.Distance(player.gameObject.transform.position, transform.position);
         if (distance <= distanceVisibilitePrix && gameManager.heure != GameManager.Heure.NUIT) {

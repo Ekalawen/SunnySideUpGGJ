@@ -32,13 +32,15 @@ public class DestructibleBloc : Interactible
     // Update is called once per frame
     void Update()
     {
+        if (!player || !player.enabled)
+            return;
+
         if (isDestroyed)
         {
             Destroy(this.gameObject);
         }
         // Update l'affichage du texte, ne s'affiche que si le joueur est assez proche
         float distance = Vector3.Distance(player.gameObject.transform.position, transform.position);
-        
         if (distance <= distanceVisibiliteResistance)
         {
             text.gameObject.SetActive(true);
