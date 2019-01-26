@@ -51,8 +51,14 @@ public class Player : MonoBehaviour
         if (Input.GetButtonDown("Interact"))
         {
             Debug.Log("Interaction");
+            Interaction();
         }
+    }
 
+    void Interaction() {
+        // Récupérer tous les objets interactibles proches de nous !
+
+        // Si plusieurs, prendre le plus proche
 
     }
 

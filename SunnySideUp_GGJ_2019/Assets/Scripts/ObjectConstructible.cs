@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObjectConstructible : MonoBehaviour
+public class ObjectConstructible : Interactible
 {
 
     public enum Etat { NON_CONSTRUIT, CONSTRUIT };
@@ -32,7 +32,7 @@ public class ObjectConstructible : MonoBehaviour
 
     public void SetEtat(Etat newEtat) {
         etat = newEtat;
-        if(etat == Etat.NON_CONSTRUIT) {
+        if (etat == Etat.NON_CONSTRUIT) {
             constructible.SetActive(true);
             construction.SetActive(false);
         } else {
@@ -44,9 +44,9 @@ public class ObjectConstructible : MonoBehaviour
     // Update is called once per frame
     void Update() {
         // Update l'affichage du prix, ne s'affiche que si le joueur est assez proche
-        if(etat == Etat.NON_CONSTRUIT) {
+        if (etat == Etat.NON_CONSTRUIT) {
             float distance = Vector3.Distance(player.gameObject.transform.position, transform.position);
-            if(distance <= distanceVisibilitePrix) {
+            if (distance <= distanceVisibilitePrix) {
                 price.gameObject.SetActive(true);
             } else {
                 price.gameObject.SetActive(false);
@@ -56,13 +56,22 @@ public class ObjectConstructible : MonoBehaviour
         }
     }
 
+    public override void Interact() {
+        if(peutConstruire()) {
+            // débitter le player
+            /// TODO
+
+            // Puis on peut construire :)
+            Construire();
+        }
+    }
+
     // Pour construire l'objet
     public void Construire() {
         // Faire payer !
 
         // Afficher les bons éléments
         constructible.SetActive(false);
-        price.gameObject.SetActive(false);
         construction.SetActive(true);
     }
 
