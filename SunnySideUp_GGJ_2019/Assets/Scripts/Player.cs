@@ -42,13 +42,14 @@ public class Player : MonoBehaviour
         {
             forces.y += Input.GetAxis("Vertical") * Time.deltaTime * speed;
         }
-        if (ShouldApplyGravity()) {
-            forces.y += gravity * Time.deltaTime;
-        }
+        
 
         if (!blockMove)
         {
-            forces.y += gravity * Time.deltaTime;
+            if (ShouldApplyGravity())
+            {
+                forces.y += gravity * Time.deltaTime;
+            }
             if (controller.isGrounded && Input.GetButtonDown("Jump"))
             {
             StartCoroutine(Jump());
