@@ -8,6 +8,7 @@ public class StartCamera : MonoBehaviour
     public Camera m_mainCamera;
 
     GameObject m_player;
+    Camera m_playerCamera;
     Camera m_startCamera;
     Animator m_anim;
     GameObject m_startButton;
@@ -16,7 +17,8 @@ public class StartCamera : MonoBehaviour
     void Start()
     {
         m_player = GameObject.FindWithTag("Player");
-        m_player.SetActive(false);
+        m_playerCamera = m_player.GetComponentInChildren<Camera>();
+        m_playerCamera.enabled = false;
 
         m_anim = GetComponentInChildren<Animator>();
 
@@ -37,5 +39,12 @@ public class StartCamera : MonoBehaviour
     {
         m_anim.SetTrigger("StartCamera");
         m_startButton.SetActive(false);
+    }
+
+    public void TriggerPlayerFallFromTop(float theValue)
+    {
+        Debug.Log("Fall from top");
+        PlayerAnim playerAnim = m_player.GetComponentInChildren<PlayerAnim>();
+        playerAnim.FallFromTop();
     }
 }

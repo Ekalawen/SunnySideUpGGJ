@@ -4587,6 +4587,43 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1 &1431171027 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1613376563661700341, guid: 8d4c951f46ca24546b390a9ff40c3a6a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1645194623}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1431171028
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1431171027}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 24ef1c108a4f88f4990c1d42e0d8e42e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1431171029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1431171027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a916a97872f1c4446811e44353270654, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1431516042
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5449,12 +5486,12 @@ PrefabInstance:
     - target: {fileID: 1613376563661700336, guid: 8d4c951f46ca24546b390a9ff40c3a6a,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.29
+      value: 13.3
       objectReference: {fileID: 0}
     - target: {fileID: 1613376563661700336, guid: 8d4c951f46ca24546b390a9ff40c3a6a,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4
+      value: 12.33
       objectReference: {fileID: 0}
     - target: {fileID: 1613376563661700336, guid: 8d4c951f46ca24546b390a9ff40c3a6a,
         type: 3}
@@ -5522,6 +5559,11 @@ PrefabInstance:
       propertyPath: m_Text
       value: Hello
       objectReference: {fileID: 0}
+    - target: {fileID: 1613376563661700342, guid: 8d4c951f46ca24546b390a9ff40c3a6a,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1613376563661700340, guid: 8d4c951f46ca24546b390a9ff40c3a6a,
         type: 3}
       propertyPath: m_Enabled
@@ -5529,6 +5571,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2128919962, guid: 8d4c951f46ca24546b390a9ff40c3a6a, type: 3}
       propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 560448791368793937, guid: 8d4c951f46ca24546b390a9ff40c3a6a,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1613376563327052201, guid: 8d4c951f46ca24546b390a9ff40c3a6a,
+        type: 3}
+      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
