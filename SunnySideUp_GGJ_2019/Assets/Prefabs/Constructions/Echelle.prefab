@@ -50,7 +50,7 @@ MonoBehaviour:
   constructible: {fileID: 5789689765913907417}
   construction: {fileID: 9026994307110450578}
   price: {fileID: 5789689766411376024}
-  priceBois: 5
+  priceBois: 2
   priceFer: 0
   distanceVisibilitePrix: 3
 --- !u!65 &8249949948065775094
@@ -278,7 +278,7 @@ PrefabInstance:
     - target: {fileID: 3487785480523446913, guid: 08c0af720328cbe439d9a75257719ff7,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.529
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3487785480523446913, guid: 08c0af720328cbe439d9a75257719ff7,
         type: 3}
