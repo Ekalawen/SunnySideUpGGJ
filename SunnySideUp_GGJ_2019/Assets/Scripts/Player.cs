@@ -16,15 +16,12 @@ public class Player : MonoBehaviour
     CharacterController controller;
     [HideInInspector]
     public Inventaire inventaire;
+    private GameManager gameManager;
 
     // Start is called before the first frame update
     void Start()
     {
-        /*
-        m_Rigidbody = GetComponent<Rigidbody>();
-        m_Rigidbody.constraints = RigidbodyConstraints.FreezePositionX;
-        m_Rigidbody.constraints = RigidbodyConstraints.FreezeRotation;
-        */
+        gameManager = FindObjectOfType<GameManager>();
         inventaire = new Inventaire();
 
         controller = GetComponent<CharacterController>();
@@ -88,7 +85,7 @@ public class Player : MonoBehaviour
 
     void Interaction() {
         List<Interactible> interactibles = new List<Interactible>();
-        foreach(Collider c in Physics.OverlapBox(transform.position, new Vector3(1, 1, 3)))
+        foreach(Collider c in Physics.OverlapSphere(transform.position, 2.0f))
         {
             if (c.gameObject.GetComponent<Interactible>() != null)
             {
