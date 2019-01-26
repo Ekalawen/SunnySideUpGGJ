@@ -95,8 +95,6 @@ public class Player : MonoBehaviour
         List<Interactible> interactibles = new List<Interactible>();
         foreach(Collider c in Physics.OverlapSphere(transform.position, 2.0f))
         {
-            Debug.Log(c.gameObject.name);
-
             if (c.gameObject.GetComponent<Interactible>() != null)
             {
                 interactibles.Add(c.gameObject.GetComponent<Interactible>());
@@ -108,7 +106,6 @@ public class Player : MonoBehaviour
         if(interactibles.Count > 0) {
             for (int i = 0; i < interactibles.Count; i++) {
                 float dist = Vector3.Distance(transform.position, interactibles[i].gameObject.transform.position);
-                Debug.Log(interactibles[i].gameObject.name + " dist = " + dist);
                 if (dist < distMin)
                 {
                     distMin = dist;
