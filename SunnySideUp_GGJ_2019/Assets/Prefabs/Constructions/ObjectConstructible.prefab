@@ -144,6 +144,8 @@ MonoBehaviour:
   priceBois: 10
   priceFer: 0
   distanceVisibilitePrix: 3
+  no_gravity: 0
+  y_axis: 0
 --- !u!65 &8249949948065775094
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -273,7 +275,7 @@ PrefabInstance:
     - target: {fileID: 3487785480523446913, guid: 08c0af720328cbe439d9a75257719ff7,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.51
       objectReference: {fileID: 0}
     - target: {fileID: 3487785480523446913, guid: 08c0af720328cbe439d9a75257719ff7,
         type: 3}

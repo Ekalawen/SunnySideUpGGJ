@@ -15,13 +15,14 @@ public class DestructibleBloc : Interactible
     private Player player;
 
     // Start is called before the first frame update
-    void Start()
-    {
+    void Start() {
         player = FindObjectOfType<Player>();
 
         isDestroyed = false;
 
         text.text = "" + resistance;
+
+        transform.GetChild(0).gameObject.SetActive(true);
     }
 
     public void SetDestruction()

@@ -200,7 +200,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4349480446278942729}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0.389}
   m_LocalScale: {x: 0.00248, y: 0.00248, z: 0.00248}
   m_Children:
   - {fileID: 5657914635649766000}
@@ -340,6 +340,8 @@ MonoBehaviour:
   priceBois: 0
   priceFer: 0
   distanceVisibilitePrix: 3
+  no_gravity: 0
+  y_axis: 0
 --- !u!65 &6400148680706597684
 BoxCollider:
   m_ObjectHideFlags: 0
