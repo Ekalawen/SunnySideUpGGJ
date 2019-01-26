@@ -58,7 +58,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: fa7c8b55872192b4093cdd4425f3a69a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -101,6 +101,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5789689765518847228}
   - component: {fileID: 5789689765518847227}
+  - component: {fileID: 8249949948065775094}
   m_Layer: 0
   m_Name: ObjectConstructible
   m_TagString: Untagged
@@ -140,8 +141,23 @@ MonoBehaviour:
   constructible: {fileID: 5789689765913907417}
   construction: {fileID: 5789689765355891261}
   price: {fileID: 5789689766411376024}
+  player: {fileID: 0}
   priceBois: 10
   pricePierre: 5
+  distanceVisibilitePrix: 3
+--- !u!65 &8249949948065775094
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5789689765518847226}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5789689765913907417
 GameObject:
   m_ObjectHideFlags: 0
@@ -200,7 +216,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 036fa17d46441fa42824f3952e0eedd0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -240,11 +256,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5789689765518847228}
     m_Modifications:
-    - target: {fileID: 3487785480523446918, guid: 08c0af720328cbe439d9a75257719ff7,
-        type: 3}
-      propertyPath: m_Name
-      value: Price
-      objectReference: {fileID: 0}
     - target: {fileID: 3487785480523446913, guid: 08c0af720328cbe439d9a75257719ff7,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -350,11 +361,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 3487785480523446914, guid: 08c0af720328cbe439d9a75257719ff7,
-        type: 3}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 3487785480523446925, guid: 08c0af720328cbe439d9a75257719ff7,
         type: 3}
       propertyPath: prixBois
@@ -365,6 +371,16 @@ PrefabInstance:
       propertyPath: prixPierre
       value: 
       objectReference: {fileID: 5789689765114780596}
+    - target: {fileID: 3487785480523446918, guid: 08c0af720328cbe439d9a75257719ff7,
+        type: 3}
+      propertyPath: m_Name
+      value: Price
+      objectReference: {fileID: 0}
+    - target: {fileID: 3487785480523446914, guid: 08c0af720328cbe439d9a75257719ff7,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 08c0af720328cbe439d9a75257719ff7, type: 3}
 --- !u!224 &5789689766411376020 stripped

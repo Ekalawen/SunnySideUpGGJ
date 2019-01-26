@@ -7,7 +7,7 @@ public class Price : MonoBehaviour
 {
 
     public Text prixBois;
-    public Text prixPierre;
+    public Text prixFer;
 
     // Start is called before the first frame update
     void Start() {
@@ -17,9 +17,9 @@ public class Price : MonoBehaviour
     void Update() {
     }
 
-    public void SetupPrix(int _prixBois, int _prixPierre)
+    public void SetupPrix(int _prixBois, int _prixFer)
     {
         prixBois.text = "Bois : " + _prixBois;
-        prixPierre.text = "Pierre : " + _prixPierre;
+        prixFer.text = "Fer : " + _prixFer;
     }
 }
