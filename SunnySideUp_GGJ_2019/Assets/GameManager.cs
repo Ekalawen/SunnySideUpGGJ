@@ -15,15 +15,31 @@ public class GameManager : MonoBehaviour
     public Heure heure;
 
     private float debutHeure;
+    private List<ObjetRessource> objects_to_respawn = new List<ObjetRessource>();
+
+    private bool late_start = true;
 
     // Start is called before the first frame update
-    void Start() {
-        // On commence le jour
+    void Start() {// On commence le jour
         ChangerHeure(Heure.JOUR);
+    }
+
+    void LateStart()
+    {
+        foreach (ObjetRessource o in FindObjectsOfType<ObjetRessource>())
+        {
+            if (o.respawnable)
+                objects_to_respawn.Add(o);
+        }
     }
 
     // Update is called once per frame
     void Update() {
+        if (late_start)
+        {
+            LateStart();
+            late_start = false;
+        }
         UpdateHeure();
     }
 
@@ -71,12 +87,9 @@ public class GameManager : MonoBehaviour
         float duree = 10.0f;
         float debut = Time.time;
         float avancementDebut = RenderSettings.ambientIntensity;
-        Debug.Log("Dawn");
-        foreach (ObjetRessource o in FindObjectsOfType<ObjetRessource>())
+        foreach (ObjetRessource o in objects_to_respawn)
         {
-            Debug.Log("Respawn");
-            if(o.respawnable)
-                o.Respawn();
+            o.Respawn();
         }
 
         while (heure == Heure.AUBE && Time.time - debut < duree)

@@ -50,7 +50,9 @@ public class ObjetRessource : Interactible {
             if(quantiteActuelle == 0)
             {
                 if (respawnable)
+                {
                     this.gameObject.SetActive(false);
+                }
                 else
                     Destroy(this.gameObject);
             }
@@ -59,6 +61,7 @@ public class ObjetRessource : Interactible {
 
     public void Respawn() {
         quantiteActuelle = quantiteMax;
+        text.text = "" + quantiteActuelle;
         this.gameObject.SetActive(true);
     }
 
