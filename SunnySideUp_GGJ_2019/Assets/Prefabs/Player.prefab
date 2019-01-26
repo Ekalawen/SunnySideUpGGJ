@@ -167,10 +167,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1297684acd47cdd47abc8e40bf307506, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 25
+  speed: 8
   jump_force: 12
   jump_time: 0.5
-  jump_coef: 2.05
+  jump_coef: 2.5
   gravity: -9.81
 --- !u!143 &2128919962
 CharacterController:
