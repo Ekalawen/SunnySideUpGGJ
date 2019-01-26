@@ -16,19 +16,15 @@ public class Player : MonoBehaviour
     CharacterController controller;
     [HideInInspector]
     public Inventaire inventaire;
+    private GameManager gameManager;
 
     private bool blockMove;
 
     // Start is called before the first frame update
     void Start()
     {
-        /*
-        m_Rigidbody = GetComponent<Rigidbody>();
-        m_Rigidbody.constraints = RigidbodyConstraints.FreezePositionX;
-        m_Rigidbody.constraints = RigidbodyConstraints.FreezeRotation;
-        */
         blockMove = false;
-
+        gameManager = FindObjectOfType<GameManager>();
         inventaire = new Inventaire();
 
         controller = GetComponent<CharacterController>();
@@ -42,6 +38,13 @@ public class Player : MonoBehaviour
         translation *= Time.deltaTime * speed;
 
         forces.x += translation;
+        if (ShouldAllowYAxis())
+        {
+            forces.y += Input.GetAxis("Vertical") * Time.deltaTime * speed;
+        }
+        if (ShouldApplyGravity()) {
+            forces.y += gravity * Time.deltaTime;
+        }
 
         if (!blockMove)
         {
@@ -62,11 +65,34 @@ public class Player : MonoBehaviour
         }         
     }
 
-    void Interaction()
+    bool ShouldApplyGravity() {
+        foreach(Collider c in Physics.OverlapBox(transform.position, new Vector3(0.1f, 0.1f, 3)))
+        {
+            ObjectConstructible o = c.gameObject.GetComponent<ObjectConstructible>();
+            if (o != null && o.estContruit() && o.no_gravity)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    bool ShouldAllowYAxis()
     {
-        Debug.Log("------------------");
+        foreach (Collider c in Physics.OverlapBox(transform.position, new Vector3(0.1f, 0.1f, 3)))
+        {
+            ObjectConstructible o = c.gameObject.GetComponent<ObjectConstructible>();
+            if (o != null && o.estContruit() && o.y_axis)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    void Interaction() {
         List<Interactible> interactibles = new List<Interactible>();
-        foreach(Collider c in Physics.OverlapBox(transform.position, new Vector3(1, 1, 3)))
+        foreach(Collider c in Physics.OverlapSphere(transform.position, 2.0f))
         {
             Debug.Log(c.gameObject.name);
 

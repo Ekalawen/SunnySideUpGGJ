@@ -18,10 +18,15 @@ public class ObjectConstructible : Interactible
 
     private Etat etat;
     private Player player;
+    private GameManager gameManager;
+
+    public bool no_gravity = false;
+    public bool y_axis = false;
 
     // Start is called before the first frame update
     void Start() {
         player = FindObjectOfType<Player>();
+        gameManager = FindObjectOfType<GameManager>();
 
         // Mettre dans le bon état
         SetEtat(Etat.NON_CONSTRUIT);
@@ -43,10 +48,13 @@ public class ObjectConstructible : Interactible
 
     // Update is called once per frame
     void Update() {
+        if (!player || !player.enabled)
+            return;
+
         // Update l'affichage du prix, ne s'affiche que si le joueur est assez proche
         if (etat == Etat.NON_CONSTRUIT) {
             float distance = Vector3.Distance(player.gameObject.transform.position, transform.position);
-            if (distance <= distanceVisibilitePrix) {
+            if (distance <= distanceVisibilitePrix && gameManager.heure != GameManager.Heure.NUIT) {
                 price.gameObject.SetActive(true);
             } else {
                 price.gameObject.SetActive(false);
@@ -58,13 +66,18 @@ public class ObjectConstructible : Interactible
 
     public override void Interact() {
         base.Interact();
-        if (peutConstruire()) {
-            // débitter le player
-            player.inventaire.Use(ObjetRessource.TypeRessource.BOIS, priceBois);
-            player.inventaire.Use(ObjetRessource.TypeRessource.FER, priceFer);
 
-            // Puis on peut construire :)
-            Construire();
+        if (gameManager.heure != GameManager.Heure.NUIT)
+        {
+            if (peutConstruire())
+            {
+                // débitter le player
+                player.inventaire.Use(ObjetRessource.TypeRessource.BOIS, priceBois);
+                player.inventaire.Use(ObjetRessource.TypeRessource.FER, priceFer);
+
+                // Puis on peut construire :)
+                Construire();
+            }
         }
     }
 

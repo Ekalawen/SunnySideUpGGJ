@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 2893856912569510195, guid: fed770189360da541abf2ee5ff3eb88a,
         type: 3}
       propertyPath: m_Name
-      value: Bois
+      value: Bois Variant
       objectReference: {fileID: 0}
     - target: {fileID: 459990982304823372, guid: fed770189360da541abf2ee5ff3eb88a,
         type: 3}
@@ -82,6 +82,16 @@ PrefabInstance:
       propertyPath: text
       value: 
       objectReference: {fileID: 7093245699246494869}
+    - target: {fileID: 2070584342059669992, guid: fed770189360da541abf2ee5ff3eb88a,
+        type: 3}
+      propertyPath: respawnable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2070584342059669992, guid: fed770189360da541abf2ee5ff3eb88a,
+        type: 3}
+      propertyPath: quantiteMax
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 91189222140479348, guid: fed770189360da541abf2ee5ff3eb88a,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
