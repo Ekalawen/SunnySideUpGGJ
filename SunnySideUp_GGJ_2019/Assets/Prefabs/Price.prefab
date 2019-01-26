@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3487785479336031392}
   - component: {fileID: 3487785479336031393}
   m_Layer: 0
-  m_Name: PierreValue
+  m_Name: FerValue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -78,7 +78,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Pierre :
+  m_Text: 'Fer :
 
 '
 --- !u!1 &3487785479707012982
@@ -274,4 +274,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prixBois: {fileID: 3487785479707012976}
-  prixPierre: {fileID: 3487785479336031393}
+  prixFer: {fileID: 3487785479336031393}
