@@ -20,9 +20,11 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        /*
         m_Rigidbody = GetComponent<Rigidbody>();
         m_Rigidbody.constraints = RigidbodyConstraints.FreezePositionX;
         m_Rigidbody.constraints = RigidbodyConstraints.FreezeRotation;
+        */
         inventaire = new Inventaire();
 
         controller = GetComponent<CharacterController>();
