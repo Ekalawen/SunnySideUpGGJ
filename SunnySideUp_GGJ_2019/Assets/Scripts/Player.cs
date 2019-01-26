@@ -40,11 +40,13 @@ public class Player : MonoBehaviour
         translation *= Time.deltaTime * speed;
         
         forces.x += translation;
-        forces.y += gravity*Time.deltaTime;
+        if (ShouldApplyGravity()) {
+            forces.y += gravity * Time.deltaTime;
+        }
 
         controller.Move(forces);
 
-        if (controller.isGrounded && Input.GetButtonDown("Jump"))
+        if ((controller.isGrounded || !ShouldApplyGravity()) && Input.GetButtonDown("Jump"))
         {
             StartCoroutine(Jump());
         }
@@ -53,6 +55,17 @@ public class Player : MonoBehaviour
         {
             Interaction();
         }
+    }
+
+    bool ShouldApplyGravity() {
+        foreach(Collider c in Physics.OverlapBox(transform.position, new Vector3(0.1f, 0.1f, 3)))
+        {
+            if(c.gameObject.name == "Echelle")
+            {
+                return false;
+            }
+        }
+        return true;
     }
 
     void Interaction() {

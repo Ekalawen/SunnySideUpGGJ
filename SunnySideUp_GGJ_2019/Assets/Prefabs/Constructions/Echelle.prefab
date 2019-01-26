@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5789689765518847227}
   - component: {fileID: 8249949948065775094}
   m_Layer: 0
-  m_Name: Pont
+  m_Name: Echelle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -50,7 +50,7 @@ MonoBehaviour:
   constructible: {fileID: 5789689765913907417}
   construction: {fileID: 9026994307110450578}
   price: {fileID: 5789689766411376024}
-  priceBois: 5
+  priceBois: 2
   priceFer: 0
   distanceVisibilitePrix: 3
 --- !u!65 &8249949948065775094
@@ -167,7 +167,7 @@ PrefabInstance:
     - target: {fileID: 2528111225944659229, guid: 512ed8e30ce42d64f8802879efbecc3a,
         type: 3}
       propertyPath: m_Name
-      value: ExteriorForest
+      value: Echelle
       objectReference: {fileID: 0}
     - target: {fileID: 2528111225944659229, guid: 512ed8e30ce42d64f8802879efbecc3a,
         type: 3}
@@ -187,7 +187,7 @@ PrefabInstance:
     - target: {fileID: 6420091852625141721, guid: 512ed8e30ce42d64f8802879efbecc3a,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6420091852625141721, guid: 512ed8e30ce42d64f8802879efbecc3a,
         type: 3}
@@ -228,6 +228,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6780939513300143113, guid: 512ed8e30ce42d64f8802879efbecc3a,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b707441159296b245859a9290caf4a68, type: 2}
+    - target: {fileID: 715439538404781960, guid: 512ed8e30ce42d64f8802879efbecc3a,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 512ed8e30ce42d64f8802879efbecc3a, type: 3}
