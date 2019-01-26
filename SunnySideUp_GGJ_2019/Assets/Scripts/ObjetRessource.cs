@@ -30,7 +30,10 @@ public class ObjetRessource : Interactible {
     public override void Interact() {
         base.Interact();
 
-        Miner();
+        if (gameManager.heure != GameManager.Heure.NUIT)
+        {
+            Miner();
+        }
     }
 
     void Miner() {

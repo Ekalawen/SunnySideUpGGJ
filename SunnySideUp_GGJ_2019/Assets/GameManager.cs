@@ -51,15 +51,18 @@ public class GameManager : MonoBehaviour
         heure = Heure.CREPUSCULE;
         float duree = 10.0f;
         float debut = Time.time;
-        while (Time.time - debut < duree)
+        while (heure == Heure.CREPUSCULE && Time.time - debut < duree)
         {
             float avancement = (Time.time - debut) / duree;
             RenderSettings.ambientIntensity = 1.0f - avancement;
             directionalLight.intensity = 1.0f - avancement;
             yield return null;
         }
-        debutHeure = Time.time;
-        heure = Heure.NUIT;
+        if(heure == Heure.CREPUSCULE)
+        {
+            debutHeure = Time.time;
+            heure = Heure.NUIT;
+        }
     }
 
 
@@ -67,16 +70,20 @@ public class GameManager : MonoBehaviour
         heure = Heure.AUBE;
         float duree = 10.0f;
         float debut = Time.time;
-        while (Time.time - debut < duree)
+        float avancementDebut = RenderSettings.ambientIntensity;
+        while (heure == Heure.AUBE && Time.time - debut < duree)
         {
             float avancement = (Time.time - debut) / duree;
-            RenderSettings.ambientIntensity = avancement;
-            directionalLight.intensity = avancement;
+            RenderSettings.ambientIntensity = avancementDebut + avancement * (1 - avancementDebut);
+            directionalLight.intensity = avancementDebut + avancement * (1 - avancementDebut);
             yield return null;
         }
 
-        heure = Heure.JOUR;
-        debutHeure = Time.time;
+        if (heure == Heure.AUBE)
+        {
+            heure = Heure.JOUR;
+            debutHeure = Time.time;
+        }
     }
 
 

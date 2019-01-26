@@ -50,8 +50,7 @@ public class Player : MonoBehaviour
 
         if (Input.GetButtonDown("Interact"))
         {
-            if(gameManager.heure != GameManager.Heure.NUIT)
-                Interaction();
+            Interaction();
         }
     }
 

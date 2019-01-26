@@ -61,13 +61,17 @@ public class ObjectConstructible : Interactible
     public override void Interact() {
         base.Interact();
 
-        if(peutConstruire()) {
-            // débitter le player
-            player.inventaire.Use(ObjetRessource.TypeRessource.BOIS, priceBois);
-            player.inventaire.Use(ObjetRessource.TypeRessource.FER, priceFer);
+        if (gameManager.heure != GameManager.Heure.NUIT)
+        {
+            if (peutConstruire())
+            {
+                // débitter le player
+                player.inventaire.Use(ObjetRessource.TypeRessource.BOIS, priceBois);
+                player.inventaire.Use(ObjetRessource.TypeRessource.FER, priceFer);
 
-            // Puis on peut construire :)
-            Construire();
+                // Puis on peut construire :)
+                Construire();
+            }
         }
     }
 
