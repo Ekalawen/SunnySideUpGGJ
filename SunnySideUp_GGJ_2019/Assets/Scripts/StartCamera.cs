@@ -10,6 +10,7 @@ public class StartCamera : MonoBehaviour
     GameObject m_player;
     Camera m_startCamera;
     Animator m_anim;
+    GameObject m_startButton;
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +24,8 @@ public class StartCamera : MonoBehaviour
         m_startCamera.enabled = true;
 
         m_mainCamera.enabled = false;
+
+        m_startButton = GameObject.Find("Start");
     }
 
     // Update is called once per frame
@@ -32,6 +35,7 @@ public class StartCamera : MonoBehaviour
 
     internal void PlayStartAnim()
     {
-        m_anim.SetTrigger("Start");
+        m_anim.SetTrigger("StartCamera");
+        m_startButton.SetActive(false);
     }
 }
