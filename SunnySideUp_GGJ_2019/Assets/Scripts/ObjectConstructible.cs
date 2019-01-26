@@ -57,6 +57,7 @@ public class ObjectConstructible : Interactible
     }
 
     public override void Interact() {
+        Debug.Log("Object Interact");
         if(peutConstruire()) {
             // débitter le player
             /// TODO

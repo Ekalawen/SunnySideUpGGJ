@@ -49,7 +49,7 @@ public class Player : MonoBehaviour
         {
             foreach(Collider c in Physics.OverlapBox(transform.position, new Vector3(1, 1, 3)))
             {
-                c.gameObject.GetComponent<Interactible>?.Interact();
+                c.gameObject.GetComponent<Interactible>()?.Interact();
             }
         }
     }
