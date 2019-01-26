@@ -170,7 +170,7 @@ MonoBehaviour:
   speed: 25
   jump_force: 12
   jump_time: 0.5
-  jump_coef: 2.8
+  jump_coef: 2.05
   gravity: -9.81
 --- !u!143 &2128919962
 CharacterController:
