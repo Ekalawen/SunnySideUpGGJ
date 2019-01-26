@@ -57,7 +57,7 @@ public class Player : MonoBehaviour
 
     void Interaction() {
         List<Interactible> interactibles = new List<Interactible>();
-        foreach(Collider c in Physics.OverlapBox(transform.position, new Vector3(1, 1, 3)))
+        foreach(Collider c in Physics.OverlapSphere(transform.position, 2.0f))
         {
             if (c.gameObject.GetComponent<Interactible>() != null)
             {
