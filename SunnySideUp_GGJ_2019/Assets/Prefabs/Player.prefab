@@ -86,7 +86,6 @@ GameObject:
   - component: {fileID: 1613376563661700337}
   - component: {fileID: 1613376563661700342}
   - component: {fileID: 1613376563661700340}
-  - component: {fileID: 1613376563661700339}
   - component: {fileID: 2128919962}
   - component: {fileID: 560448791368793937}
   m_Layer: 0
@@ -171,24 +170,8 @@ MonoBehaviour:
   speed: 25
   jump_force: 12
   jump_time: 0.5
-  jump_coef: 2.8
+  jump_coef: 2.05
   gravity: -9.81
---- !u!54 &1613376563661700339
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1613376563661700341}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!143 &2128919962
 CharacterController:
   m_ObjectHideFlags: 0
@@ -202,7 +185,7 @@ CharacterController:
   serializedVersion: 2
   m_Height: 1
   m_Radius: 0.5
-  m_SlopeLimit: 45
+  m_SlopeLimit: 91
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
