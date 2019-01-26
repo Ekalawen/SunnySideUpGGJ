@@ -16,15 +16,15 @@ public class Player : MonoBehaviour
     CharacterController controller;
     [HideInInspector]
     public Inventaire inventaire;
+    private GameManager gameManager;
+
+    private bool blockMove;
 
     // Start is called before the first frame update
     void Start()
     {
-        /*
-        m_Rigidbody = GetComponent<Rigidbody>();
-        m_Rigidbody.constraints = RigidbodyConstraints.FreezePositionX;
-        m_Rigidbody.constraints = RigidbodyConstraints.FreezeRotation;
-        */
+        blockMove = false;
+        gameManager = FindObjectOfType<GameManager>();
         inventaire = new Inventaire();
 
         controller = GetComponent<CharacterController>();
@@ -33,31 +33,67 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        forces = new Vector3();
-
         float translation = Input.GetAxis("Horizontal");
-        
+        forces = new Vector3();
         translation *= Time.deltaTime * speed;
-        
+
         forces.x += translation;
-        forces.y += gravity*Time.deltaTime;
+        if (ShouldAllowYAxis())
+        {
+            forces.y += Input.GetAxis("Vertical") * Time.deltaTime * speed;
+        }
+        
+
+        if (!blockMove)
+        {
+            if (ShouldApplyGravity())
+            {
+                forces.y += gravity * Time.deltaTime;
+            }
+            if (controller.isGrounded && Input.GetButtonDown("Jump"))
+            {
+                StartCoroutine(Jump());
+            }
+        }
+        
+
 
         controller.Move(forces);
-
-        if (controller.isGrounded && Input.GetButtonDown("Jump"))
-        {
-            StartCoroutine(Jump());
-        }
 
         if (Input.GetButtonDown("Interact"))
         {
             Interaction();
+        }         
+    }
+
+    bool ShouldApplyGravity() {
+        foreach(Collider c in Physics.OverlapBox(transform.position, new Vector3(0.1f, 0.1f, 3)))
+        {
+            ObjectConstructible o = c.gameObject.GetComponent<ObjectConstructible>();
+            if (o != null && o.estConstruit() && o.no_gravity)
+            {
+                return false;
+            }
         }
+        return true;
+    }
+
+    bool ShouldAllowYAxis()
+    {
+        foreach (Collider c in Physics.OverlapBox(transform.position, new Vector3(0.1f, 0.1f, 3)))
+        {
+            ObjectConstructible o = c.gameObject.GetComponent<ObjectConstructible>();
+            if (o != null && o.estConstruit() && o.y_axis)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
     void Interaction() {
         List<Interactible> interactibles = new List<Interactible>();
-        foreach(Collider c in Physics.OverlapBox(transform.position, new Vector3(1, 1, 3)))
+        foreach(Collider c in Physics.OverlapSphere(transform.position, 2.0f))
         {
             if (c.gameObject.GetComponent<Interactible>() != null)
             {
@@ -92,4 +128,16 @@ public class Player : MonoBehaviour
             yield return null;
         }
     }
+
+    public void teleportCharacter(Transform t)
+    {
+        controller.transform.position = t.position;
+    }
+
+    public void setBlockMove(bool etat)
+    {
+        blockMove = etat;
+    }
+
+    
 }
