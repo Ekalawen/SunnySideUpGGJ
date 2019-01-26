@@ -14,11 +14,14 @@ public class ObjetRessource : Interactible {
 
     // Start is called before the first frame update
     void Start() {
+        player = FindObjectOfType<Player>();
+
         ressource.SetActive(true);
     }
 
     public override void Interact() {
         base.Interact();
+        Debug.Log("Interact de ObjetRessource !");
 
         Miner();
     }
