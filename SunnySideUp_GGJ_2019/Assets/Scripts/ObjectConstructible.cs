@@ -2,29 +2,71 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObjectConstructible : MonoBehaviour
+public class ObjectConstructible : Interactible
 {
+
+    public enum Etat { NON_CONSTRUIT, CONSTRUIT };
 
     public GameObject constructible;
     public GameObject construction;
     public Price price;
 
     public int priceBois;
-    public int pricePierre;
+    public int priceFer;
+
+    public float distanceVisibilitePrix;
+
+    private Etat etat;
+    private Player player;
 
     // Start is called before the first frame update
     void Start() {
-        // Afficher les bons éléments
-        constructible.SetActive(true);
-        price.gameObject.SetActive(true);
-        construction.SetActive(false);
+        player = FindObjectOfType<Player>();
+
+        // Mettre dans le bon état
+        SetEtat(Etat.NON_CONSTRUIT);
 
         // Mettre à jour les prix
-        price.SetupPrix(priceBois, pricePierre);
+        price.SetupPrix(priceBois, priceFer);
+    }
+
+    public void SetEtat(Etat newEtat) {
+        etat = newEtat;
+        if (etat == Etat.NON_CONSTRUIT) {
+            constructible.SetActive(true);
+            construction.SetActive(false);
+        } else {
+            constructible.SetActive(false);
+            construction.SetActive(true);
+        }
     }
 
     // Update is called once per frame
     void Update() {
+        // Update l'affichage du prix, ne s'affiche que si le joueur est assez proche
+        if (etat == Etat.NON_CONSTRUIT) {
+            float distance = Vector3.Distance(player.gameObject.transform.position, transform.position);
+            if (distance <= distanceVisibilitePrix) {
+                price.gameObject.SetActive(true);
+            } else {
+                price.gameObject.SetActive(false);
+            }
+        } else {
+            price.gameObject.SetActive(false);
+        }
+    }
+
+    public override void Interact() {
+        base.Interact();
+
+        if(peutConstruire()) {
+            // débitter le player
+            player.inventaire.Use(ObjetRessource.TypeRessource.BOIS, priceBois);
+            player.inventaire.Use(ObjetRessource.TypeRessource.FER, priceFer);
+
+            // Puis on peut construire :)
+            Construire();
+        }
     }
 
     // Pour construire l'objet
@@ -33,12 +75,12 @@ public class ObjectConstructible : MonoBehaviour
 
         // Afficher les bons éléments
         constructible.SetActive(false);
-        price.gameObject.SetActive(false);
         construction.SetActive(true);
     }
 
     // Permet de savoir si l'on peut construire cette construction
     public bool peutConstruire() {
-        return true;
+        return player.inventaire.CanUse(ObjetRessource.TypeRessource.BOIS, priceBois)
+        && player.inventaire.CanUse(ObjetRessource.TypeRessource.FER, priceFer);
     }
 }
