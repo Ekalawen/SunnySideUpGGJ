@@ -35,7 +35,7 @@ public class Player : MonoBehaviour
 
         // Move translation along the object's z-axis
         //transform.Translate(0, 0, translation);
-        forces.z += translation;
+        forces.x += translation;
         forces.y += gravity*Time.deltaTime;
 
         controller.Move(forces);
