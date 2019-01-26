@@ -13,6 +13,8 @@ public class Player : MonoBehaviour
     Vector3 forces;
     Rigidbody m_Rigidbody;
     CharacterController controller;
+    [HideInInspector]
+    public Inventaire inventaire;
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +23,7 @@ public class Player : MonoBehaviour
         controller = GetComponent<CharacterController>();
         m_Rigidbody.constraints = RigidbodyConstraints.FreezePositionX;
         m_Rigidbody.constraints = RigidbodyConstraints.FreezeRotation;
+        inventaire = new Inventaire();
     }
 
     // Update is called once per frame
