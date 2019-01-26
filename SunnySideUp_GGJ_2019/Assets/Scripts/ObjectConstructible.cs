@@ -19,6 +19,9 @@ public class ObjectConstructible : Interactible
     private Etat etat;
     private Player player;
 
+    public bool no_gravity = false;
+    public bool y_axis = false;
+
     // Start is called before the first frame update
     void Start() {
         player = FindObjectOfType<Player>();
@@ -82,5 +85,13 @@ public class ObjectConstructible : Interactible
     public bool peutConstruire() {
         return player.inventaire.CanUse(ObjetRessource.TypeRessource.BOIS, priceBois)
         && player.inventaire.CanUse(ObjetRessource.TypeRessource.FER, priceFer);
+    }
+
+    public bool estContruit()
+    {
+        if (etat == Etat.CONSTRUIT)
+            return true;
+        else
+            return false;
     }
 }

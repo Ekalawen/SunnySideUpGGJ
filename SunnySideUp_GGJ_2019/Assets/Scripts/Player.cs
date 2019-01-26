@@ -40,6 +40,10 @@ public class Player : MonoBehaviour
         translation *= Time.deltaTime * speed;
         
         forces.x += translation;
+        if (ShouldAllowYAxis())
+        {
+            forces.y += Input.GetAxis("Vertical") * Time.deltaTime * speed;
+        }
         if (ShouldApplyGravity()) {
             forces.y += gravity * Time.deltaTime;
         }
@@ -60,12 +64,26 @@ public class Player : MonoBehaviour
     bool ShouldApplyGravity() {
         foreach(Collider c in Physics.OverlapBox(transform.position, new Vector3(0.1f, 0.1f, 3)))
         {
-            if(c.gameObject.name == "Echelle")
+            ObjectConstructible o = c.gameObject.GetComponent<ObjectConstructible>();
+            if (o != null && o.estContruit() && o.no_gravity)
             {
                 return false;
             }
         }
         return true;
+    }
+
+    bool ShouldAllowYAxis()
+    {
+        foreach (Collider c in Physics.OverlapBox(transform.position, new Vector3(0.1f, 0.1f, 3)))
+        {
+            ObjectConstructible o = c.gameObject.GetComponent<ObjectConstructible>();
+            if (o != null && o.estContruit() && o.y_axis)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
     void Interaction() {
