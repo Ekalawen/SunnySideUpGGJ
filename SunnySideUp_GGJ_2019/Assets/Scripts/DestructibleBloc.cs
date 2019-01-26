@@ -32,6 +32,9 @@ public class DestructibleBloc : Interactible
     // Update is called once per frame
     void Update()
     {
+        if (!player || !player.enabled)
+            return;
+
         if (isDestroyed)
         {
             Destroy(this.gameObject);
