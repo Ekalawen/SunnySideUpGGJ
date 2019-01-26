@@ -96,11 +96,9 @@ public class ObjectConstructible : Interactible
         && player.inventaire.CanUse(ObjetRessource.TypeRessource.FER, priceFer);
     }
 
-    public bool estContruit()
+    //permet de savoir si un objetConstructible et construit
+    public bool estConstruit()
     {
-        if (etat == Etat.CONSTRUIT)
-            return true;
-        else
-            return false;
+        return etat == Etat.CONSTRUIT;
     }
 }

@@ -18,9 +18,12 @@ public class Player : MonoBehaviour
     public Inventaire inventaire;
     private GameManager gameManager;
 
+    private bool blockMove;
+
     // Start is called before the first frame update
     void Start()
     {
+        blockMove = false;
         gameManager = FindObjectOfType<GameManager>();
         inventaire = new Inventaire();
 
@@ -30,39 +33,44 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        forces = new Vector3();
-
         float translation = Input.GetAxis("Horizontal");
-        
+        forces = new Vector3();
         translation *= Time.deltaTime * speed;
-        
+
         forces.x += translation;
         if (ShouldAllowYAxis())
         {
             forces.y += Input.GetAxis("Vertical") * Time.deltaTime * speed;
         }
-        if (ShouldApplyGravity()) {
-            forces.y += gravity * Time.deltaTime;
+        
+
+        if (!blockMove)
+        {
+            if (ShouldApplyGravity())
+            {
+                forces.y += gravity * Time.deltaTime;
+            }
+            if (controller.isGrounded && Input.GetButtonDown("Jump"))
+            {
+            StartCoroutine(Jump());
+            }
         }
+        
+
 
         controller.Move(forces);
-
-        if ((controller.isGrounded || !ShouldApplyGravity()) && Input.GetButtonDown("Jump"))
-        {
-            StartCoroutine(Jump());
-        }
 
         if (Input.GetButtonDown("Interact"))
         {
             Interaction();
-        }
+        }         
     }
 
     bool ShouldApplyGravity() {
         foreach(Collider c in Physics.OverlapBox(transform.position, new Vector3(0.1f, 0.1f, 3)))
         {
             ObjectConstructible o = c.gameObject.GetComponent<ObjectConstructible>();
-            if (o != null && o.estContruit() && o.no_gravity)
+            if (o != null && o.estConstruit() && o.no_gravity)
             {
                 return false;
             }
@@ -75,7 +83,7 @@ public class Player : MonoBehaviour
         foreach (Collider c in Physics.OverlapBox(transform.position, new Vector3(0.1f, 0.1f, 3)))
         {
             ObjectConstructible o = c.gameObject.GetComponent<ObjectConstructible>();
-            if (o != null && o.estContruit() && o.y_axis)
+            if (o != null && o.estConstruit() && o.y_axis)
             {
                 return true;
             }
@@ -87,6 +95,8 @@ public class Player : MonoBehaviour
         List<Interactible> interactibles = new List<Interactible>();
         foreach(Collider c in Physics.OverlapSphere(transform.position, 2.0f))
         {
+            Debug.Log(c.gameObject.name);
+
             if (c.gameObject.GetComponent<Interactible>() != null)
             {
                 interactibles.Add(c.gameObject.GetComponent<Interactible>());
@@ -98,6 +108,7 @@ public class Player : MonoBehaviour
         if(interactibles.Count > 0) {
             for (int i = 0; i < interactibles.Count; i++) {
                 float dist = Vector3.Distance(transform.position, interactibles[i].gameObject.transform.position);
+                Debug.Log(interactibles[i].gameObject.name + " dist = " + dist);
                 if (dist < distMin)
                 {
                     distMin = dist;
@@ -120,4 +131,16 @@ public class Player : MonoBehaviour
             yield return null;
         }
     }
+
+    public void teleportCharacter(Transform t)
+    {
+        controller.transform.position = t.position;
+    }
+
+    public void setBlockMove(bool etat)
+    {
+        blockMove = etat;
+    }
+
+    
 }
