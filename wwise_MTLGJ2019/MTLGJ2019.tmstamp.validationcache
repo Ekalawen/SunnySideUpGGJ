@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationCache Version="1" SchemaVersion="89">
+	<ValidationCacheItem File="R:\Git\SunnySideUpGGJ\wwise_MTLGJ2019\Actor-Mixer Hierarchy\Default Work Unit.wwu" DateLow="1548464940" DateHigh="0"/>
+	<ValidationCacheItem File="R:\Git\SunnySideUpGGJ\wwise_MTLGJ2019\Actor-Mixer Hierarchy\Factory Motion.wwu" DateLow="1548465008" DateHigh="0"/>
+	<ValidationCacheItem File="R:\Git\SunnySideUpGGJ\wwise_MTLGJ2019\Actor-Mixer Hierarchy\Factory Synth One.wwu" DateLow="1548462764" DateHigh="0"/>
+	<ValidationCacheItem File="R:\Git\SunnySideUpGGJ\wwise_MTLGJ2019\Attenuations\Default Work Unit.wwu" DateLow="1548464938" DateHigh="0"/>
+	<ValidationCacheItem File="R:\Git\SunnySideUpGGJ\wwise_MTLGJ2019\Audio Devices\Default Work Unit.wwu" DateLow="1548465008" DateHigh="0"/>
+	<ValidationCacheItem File="R:\Git\SunnySideUpGGJ\wwise_MTLGJ2019\Control Surface Sessions\Default Work Unit.wwu" DateLow="1548464936" DateHigh="0"/>
+	<ValidationCacheItem File="R:\Git\SunnySideUpGGJ\wwise_MTLGJ2019\Conversion Settings\Default Work Unit.wwu" DateLow="1548464938" DateHigh="0"/>
+	<ValidationCacheItem File="R:\Git\SunnySideUpGGJ\wwise_MTLGJ2019\Conversion Settings\Factory Conversion Settings.wwu" DateLow="1548462764" DateHigh="0"/>
+	<ValidationCacheItem File="R:\Git\SunnySideUpGGJ\wwise_MTLGJ2019\Dynamic Dialogue\Default Work Unit.wwu" DateLow="1548464938" DateHigh="0"/>
+	<ValidationCacheItem File="R:\Git\SunnySideUpGGJ\wwise_MTLGJ2019\Effects\Default Work Unit.wwu" DateLow="1548464938" DateHigh="0"/>
+	<ValidationCacheItem File="R:\Git\SunnySideUpGGJ\wwise_MTLGJ2019\Effects\Factory Effects.wwu" DateLow="1548462764" DateHigh="0"/>
+	<ValidationCacheItem File="R:\Git\SunnySideUpGGJ\wwise_MTLGJ2019\Effects\Factory McDSP Effects.wwu" DateLow="1548462826" DateHigh="0"/>
+	<ValidationCacheItem File="R:\Git\SunnySideUpGGJ\wwise_MTLGJ2019\Events\Default Work Unit.wwu" DateLow="1548464940" DateHigh="0"/>
+	<ValidationCacheItem File="R:\Git\SunnySideUpGGJ\wwise_MTLGJ2019\Game Parameters\Default Work Unit.wwu" DateLow="1548464940" DateHigh="0"/>
+	<ValidationCacheItem File="R:\Git\SunnySideUpGGJ\wwise_MTLGJ2019\Game Parameters\Factory Motion.wwu" DateLow="1548462764" DateHigh="0"/>
+	<ValidationCacheItem File="R:\Git\SunnySideUpGGJ\wwise_MTLGJ2019\Interactive Music Hierarchy\Default Work Unit.wwu" DateLow="1548464938" DateHigh="0"/>
+	<ValidationCacheItem File="R:\Git\SunnySideUpGGJ\wwise_MTLGJ2019\Master-Mixer Hierarchy\Default Work Unit.wwu" DateLow="1548465008" DateHigh="0"/>
+	<ValidationCacheItem File="R:\Git\SunnySideUpGGJ\wwise_MTLGJ2019\Mixing Sessions\Default Work Unit.wwu" DateLow="1548464938" DateHigh="0"/>
+	<ValidationCacheItem File="R:\Git\SunnySideUpGGJ\wwise_MTLGJ2019\Modulators\Default Work Unit.wwu" DateLow="1548464936" DateHigh="0"/>
+	<ValidationCacheItem File="R:\Git\SunnySideUpGGJ\wwise_MTLGJ2019\MTLGJ2019.tmstamp.wsettings" DateLow="1548465106" DateHigh="0"/>
+	<ValidationCacheItem File="R:\Git\SunnySideUpGGJ\wwise_MTLGJ2019\MTLGJ2019.wproj" DateLow="1548464936" DateHigh="0"/>
+	<ValidationCacheItem File="R:\Git\SunnySideUpGGJ\wwise_MTLGJ2019\Presets\Default Work Unit.wwu" DateLow="1548464938" DateHigh="0"/>
+	<ValidationCacheItem File="R:\Git\SunnySideUpGGJ\wwise_MTLGJ2019\Queries\Default Work Unit.wwu" DateLow="1548464938" DateHigh="0"/>
+	<ValidationCacheItem File="R:\Git\SunnySideUpGGJ\wwise_MTLGJ2019\Queries\Factory Queries.wwu" DateLow="1548462764" DateHigh="0"/>
+	<ValidationCacheItem File="R:\Git\SunnySideUpGGJ\wwise_MTLGJ2019\SoundBanks\Default Work Unit.wwu" DateLow="1548464940" DateHigh="0"/>
+	<ValidationCacheItem File="R:\Git\SunnySideUpGGJ\wwise_MTLGJ2019\Soundcaster Sessions\Default Work Unit.wwu" DateLow="1548464938" DateHigh="0"/>
+	<ValidationCacheItem File="R:\Git\SunnySideUpGGJ\wwise_MTLGJ2019\States\Default Work Unit.wwu" DateLow="1548464938" DateHigh="0"/>
+	<ValidationCacheItem File="R:\Git\SunnySideUpGGJ\wwise_MTLGJ2019\Switches\Default Work Unit.wwu" DateLow="1548464940" DateHigh="0"/>
+	<ValidationCacheItem File="R:\Git\SunnySideUpGGJ\wwise_MTLGJ2019\Triggers\Default Work Unit.wwu" DateLow="1548464938" DateHigh="0"/>
+	<ValidationCacheItem File="R:\Git\SunnySideUpGGJ\wwise_MTLGJ2019\Virtual Acoustics\Default Work Unit.wwu" DateLow="1548464936" DateHigh="0"/>
+	<ValidationCacheItem File="R:\Git\wwise\MTLGJ2019\Actor-Mixer Hierarchy\Default Work Unit.wwu" DateLow="1548464940" DateHigh="0"/>
+	<ValidationCacheItem File="R:\Git\wwise\MTLGJ2019\Actor-Mixer Hierarchy\Factory Motion.wwu" DateLow="1548462764" DateHigh="0"/>
+	<ValidationCacheItem File="R:\Git\wwise\MTLGJ2019\Actor-Mixer Hierarchy\Factory Synth One.wwu" DateLow="1548462764" DateHigh="0"/>
+	<ValidationCacheItem File="R:\Git\wwise\MTLGJ2019\Attenuations\Default Work Unit.wwu" DateLow="1548464938" DateHigh="0"/>
+	<ValidationCacheItem File="R:\Git\wwise\MTLGJ2019\Audio Devices\Default Work Unit.wwu" DateLow="1548464938" DateHigh="0"/>
+	<ValidationCacheItem File="R:\Git\wwise\MTLGJ2019\Control Surface Sessions\Default Work Unit.wwu" DateLow="1548464936" DateHigh="0"/>
+	<ValidationCacheItem File="R:\Git\wwise\MTLGJ2019\Conversion Settings\Default Work Unit.wwu" DateLow="1548464938" DateHigh="0"/>
+	<ValidationCacheItem File="R:\Git\wwise\MTLGJ2019\Conversion Settings\Factory Conversion Settings.wwu" DateLow="1548462764" DateHigh="0"/>
+	<ValidationCacheItem File="R:\Git\wwise\MTLGJ2019\Dynamic Dialogue\Default Work Unit.wwu" DateLow="1548464938" DateHigh="0"/>
+	<ValidationCacheItem File="R:\Git\wwise\MTLGJ2019\Effects\Default Work Unit.wwu" DateLow="1548464938" DateHigh="0"/>
+	<ValidationCacheItem File="R:\Git\wwise\MTLGJ2019\Effects\Factory Effects.wwu" DateLow="1548462764" DateHigh="0"/>
+	<ValidationCacheItem File="R:\Git\wwise\MTLGJ2019\Effects\Factory McDSP Effects.wwu" DateLow="1548462826" DateHigh="0"/>
+	<ValidationCacheItem File="R:\Git\wwise\MTLGJ2019\Events\Default Work Unit.wwu" DateLow="1548464940" DateHigh="0"/>
+	<ValidationCacheItem File="R:\Git\wwise\MTLGJ2019\Game Parameters\Default Work Unit.wwu" DateLow="1548464940" DateHigh="0"/>
+	<ValidationCacheItem File="R:\Git\wwise\MTLGJ2019\Game Parameters\Factory Motion.wwu" DateLow="1548462764" DateHigh="0"/>
+	<ValidationCacheItem File="R:\Git\wwise\MTLGJ2019\Interactive Music Hierarchy\Default Work Unit.wwu" DateLow="1548464938" DateHigh="0"/>
+	<ValidationCacheItem File="R:\Git\wwise\MTLGJ2019\Master-Mixer Hierarchy\Default Work Unit.wwu" DateLow="1548464940" DateHigh="0"/>
+	<ValidationCacheItem File="R:\Git\wwise\MTLGJ2019\Mixing Sessions\Default Work Unit.wwu" DateLow="1548464938" DateHigh="0"/>
+	<ValidationCacheItem File="R:\Git\wwise\MTLGJ2019\Modulators\Default Work Unit.wwu" DateLow="1548464936" DateHigh="0"/>
+	<ValidationCacheItem File="R:\Git\wwise\MTLGJ2019\MTLGJ2019.wproj" DateLow="1548464936" DateHigh="0"/>
+	<ValidationCacheItem File="R:\Git\wwise\MTLGJ2019\Presets\Default Work Unit.wwu" DateLow="1548464938" DateHigh="0"/>
+	<ValidationCacheItem File="R:\Git\wwise\MTLGJ2019\Queries\Default Work Unit.wwu" DateLow="1548464938" DateHigh="0"/>
+	<ValidationCacheItem File="R:\Git\wwise\MTLGJ2019\Queries\Factory Queries.wwu" DateLow="1548462764" DateHigh="0"/>
+	<ValidationCacheItem File="R:\Git\wwise\MTLGJ2019\SoundBanks\Default Work Unit.wwu" DateLow="1548464940" DateHigh="0"/>
+	<ValidationCacheItem File="R:\Git\wwise\MTLGJ2019\Soundcaster Sessions\Default Work Unit.wwu" DateLow="1548464938" DateHigh="0"/>
+	<ValidationCacheItem File="R:\Git\wwise\MTLGJ2019\States\Default Work Unit.wwu" DateLow="1548464938" DateHigh="0"/>
+	<ValidationCacheItem File="R:\Git\wwise\MTLGJ2019\Switches\Default Work Unit.wwu" DateLow="1548464940" DateHigh="0"/>
+	<ValidationCacheItem File="R:\Git\wwise\MTLGJ2019\Triggers\Default Work Unit.wwu" DateLow="1548464938" DateHigh="0"/>
+	<ValidationCacheItem File="R:\Git\wwise\MTLGJ2019\Virtual Acoustics\Default Work Unit.wwu" DateLow="1548464936" DateHigh="0"/>
+</ValidationCache>
