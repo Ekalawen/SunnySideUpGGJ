@@ -26,7 +26,7 @@ public class StartTirolienne : Interactible
     {
         base.Interact();
 
-        if (construction.isConstruit())
+        if (construction.estConstruit())
         {
             player.teleportCharacter(EndTirolienne.transform);
         }

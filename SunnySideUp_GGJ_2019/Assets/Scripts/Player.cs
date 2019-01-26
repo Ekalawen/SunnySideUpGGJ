@@ -69,7 +69,7 @@ public class Player : MonoBehaviour
         foreach(Collider c in Physics.OverlapBox(transform.position, new Vector3(0.1f, 0.1f, 3)))
         {
             ObjectConstructible o = c.gameObject.GetComponent<ObjectConstructible>();
-            if (o != null && o.estContruit() && o.no_gravity)
+            if (o != null && o.estConstruit() && o.no_gravity)
             {
                 return false;
             }
@@ -82,7 +82,7 @@ public class Player : MonoBehaviour
         foreach (Collider c in Physics.OverlapBox(transform.position, new Vector3(0.1f, 0.1f, 3)))
         {
             ObjectConstructible o = c.gameObject.GetComponent<ObjectConstructible>();
-            if (o != null && o.estContruit() && o.y_axis)
+            if (o != null && o.estConstruit() && o.y_axis)
             {
                 return true;
             }
@@ -140,4 +140,6 @@ public class Player : MonoBehaviour
     {
         blockMove = etat;
     }
+
+    
 }

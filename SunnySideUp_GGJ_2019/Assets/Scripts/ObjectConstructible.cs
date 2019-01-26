@@ -97,7 +97,7 @@ public class ObjectConstructible : Interactible
     }
 
     //permet de savoir si un objetConstructible et construit
-    public bool isConstruit()
+    public bool estConstruit()
     {
         return etat == Etat.CONSTRUIT;
     }
