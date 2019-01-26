@@ -31,6 +31,11 @@ public class ObjetRessource : Interactible {
             player.inventaire.Add(type, 1);
             quantite--;
             Debug.Log("Inventaire = " + player.inventaire.Get(type));
+
+            if(quantite == 0)
+            {
+                Destroy(this.gameObject);
+            }
         }
     }
 
