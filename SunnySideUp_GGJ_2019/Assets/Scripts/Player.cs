@@ -17,6 +17,8 @@ public class Player : MonoBehaviour
     [HideInInspector]
     public Inventaire inventaire;
 
+    private bool blockMove;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +27,8 @@ public class Player : MonoBehaviour
         m_Rigidbody.constraints = RigidbodyConstraints.FreezePositionX;
         m_Rigidbody.constraints = RigidbodyConstraints.FreezeRotation;
         */
+        blockMove = false;
+
         inventaire = new Inventaire();
 
         controller = GetComponent<CharacterController>();
@@ -33,32 +37,39 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        forces = new Vector3();
-
         float translation = Input.GetAxis("Horizontal");
-        
+        forces = new Vector3();
         translation *= Time.deltaTime * speed;
-        
+
         forces.x += translation;
-        forces.y += gravity*Time.deltaTime;
+
+        if (!blockMove)
+        {
+            forces.y += gravity * Time.deltaTime;
+            if (controller.isGrounded && Input.GetButtonDown("Jump"))
+            {
+            StartCoroutine(Jump());
+            }
+        }
+        
+
 
         controller.Move(forces);
-
-        if (controller.isGrounded && Input.GetButtonDown("Jump"))
-        {
-            StartCoroutine(Jump());
-        }
 
         if (Input.GetButtonDown("Interact"))
         {
             Interaction();
-        }
+        }         
     }
 
-    void Interaction() {
+    void Interaction()
+    {
+        Debug.Log("------------------");
         List<Interactible> interactibles = new List<Interactible>();
         foreach(Collider c in Physics.OverlapBox(transform.position, new Vector3(1, 1, 3)))
         {
+            Debug.Log(c.gameObject.name);
+
             if (c.gameObject.GetComponent<Interactible>() != null)
             {
                 interactibles.Add(c.gameObject.GetComponent<Interactible>());
@@ -70,6 +81,7 @@ public class Player : MonoBehaviour
         if(interactibles.Count > 0) {
             for (int i = 0; i < interactibles.Count; i++) {
                 float dist = Vector3.Distance(transform.position, interactibles[i].gameObject.transform.position);
+                Debug.Log(interactibles[i].gameObject.name + " dist = " + dist);
                 if (dist < distMin)
                 {
                     distMin = dist;
@@ -91,5 +103,15 @@ public class Player : MonoBehaviour
             remaining_time -= Time.deltaTime;
             yield return null;
         }
+    }
+
+    public void teleportCharacter(Transform t)
+    {
+        controller.transform.position = t.position;
+    }
+
+    public void setBlockMove(bool etat)
+    {
+        blockMove = etat;
     }
 }

@@ -58,8 +58,7 @@ public class ObjectConstructible : Interactible
 
     public override void Interact() {
         base.Interact();
-
-        if(peutConstruire()) {
+        if (peutConstruire()) {
             // débitter le player
             player.inventaire.Use(ObjetRessource.TypeRessource.BOIS, priceBois);
             player.inventaire.Use(ObjetRessource.TypeRessource.FER, priceFer);
@@ -82,5 +81,11 @@ public class ObjectConstructible : Interactible
     public bool peutConstruire() {
         return player.inventaire.CanUse(ObjetRessource.TypeRessource.BOIS, priceBois)
         && player.inventaire.CanUse(ObjetRessource.TypeRessource.FER, priceFer);
+    }
+
+    //permet de savoir si un objetConstructible et construit
+    public bool isConstruit()
+    {
+        return etat == Etat.CONSTRUIT;
     }
 }
