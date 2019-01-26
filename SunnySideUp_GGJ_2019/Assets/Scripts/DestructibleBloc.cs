@@ -22,6 +22,8 @@ public class DestructibleBloc : Interactible
         isDestroyed = false;
 
         text.text = "" + resistance;
+
+        transform.GetChild(0).gameObject.SetActive(true);
     }
 
     public void SetDestruction()
