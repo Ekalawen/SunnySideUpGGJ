@@ -71,11 +71,11 @@ public class ObjectConstructible : Interactible
 
     // Pour construire l'objet
     public void Construire() {
-        // Faire payer !
-
         // Afficher les bons éléments
         constructible.SetActive(false);
         construction.SetActive(true);
+
+        etat = Etat.CONSTRUIT;
     }
 
     // Permet de savoir si l'on peut construire cette construction
