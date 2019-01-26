@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: GrasyDirt
-  m_Shader: {fileID: 4800000, guid: f7098c03e7d5a584395f472d8f53450e, type: 3}
+  m_Shader: {fileID: 4800000, guid: 24bbdaa3840d60b4a893f72dedd5bb44, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
