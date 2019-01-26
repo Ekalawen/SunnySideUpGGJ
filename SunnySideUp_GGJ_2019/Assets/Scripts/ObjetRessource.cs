@@ -10,21 +10,26 @@ public class ObjetRessource : Interactible {
     public GameObject ressource;
     public Text text;
     public TypeRessource type;
-    public int quantite;
+    public int quantiteMax;
+    private int quantiteActuelle;
 
     public float distanceVisibilitePrix;
+
+    public bool respawnable = false;
 
     private Player player;
     private GameManager gameManager;
 
     // Start is called before the first frame update
     void Start() {
+        quantiteActuelle = quantiteMax;
+
         player = FindObjectOfType<Player>();
         gameManager = FindObjectOfType<GameManager>();
 
         ressource.SetActive(true);
 
-        text.text = "" + quantite;
+        text.text = "" + quantiteActuelle;
     }
 
     public override void Interact() {
@@ -37,16 +42,27 @@ public class ObjetRessource : Interactible {
     }
 
     void Miner() {
-        if (quantite > 0) {
+        if (quantiteActuelle > 0) {
             player.inventaire.Add(type, 1);
-            quantite--;
-            text.text = "" + quantite;
+            quantiteActuelle--;
+            text.text = "" + quantiteActuelle;
 
-            if(quantite == 0)
+            if(quantiteActuelle == 0)
             {
-                Destroy(this.gameObject);
+                if (respawnable)
+                {
+                    this.gameObject.SetActive(false);
+                }
+                else
+                    Destroy(this.gameObject);
             }
         }
+    }
+
+    public void Respawn() {
+        quantiteActuelle = quantiteMax;
+        text.text = "" + quantiteActuelle;
+        this.gameObject.SetActive(true);
     }
 
     private void Update()

@@ -82,6 +82,11 @@ PrefabInstance:
       propertyPath: text
       value: 
       objectReference: {fileID: 6455074182032394825}
+    - target: {fileID: 2070584342059669992, guid: fed770189360da541abf2ee5ff3eb88a,
+        type: 3}
+      propertyPath: quantiteMax
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 91189222140479348, guid: fed770189360da541abf2ee5ff3eb88a,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
