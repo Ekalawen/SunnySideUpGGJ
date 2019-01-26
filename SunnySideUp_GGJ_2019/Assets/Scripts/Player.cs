@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public float speed = 15.0f;
+    public float speed = 10.0f;
     public float jump_force = 12.0f;
     public float jump_time = 0.5f;
+    public float jump_coef = 2.8f;
 
     public float gravity = -9.81f;
 
@@ -20,10 +21,11 @@ public class Player : MonoBehaviour
     void Start()
     {
         m_Rigidbody = GetComponent<Rigidbody>();
-        controller = GetComponent<CharacterController>();
         m_Rigidbody.constraints = RigidbodyConstraints.FreezePositionX;
         m_Rigidbody.constraints = RigidbodyConstraints.FreezeRotation;
         inventaire = new Inventaire();
+
+        controller = GetComponent<CharacterController>();
     }
 
     // Update is called once per frame
@@ -33,11 +35,8 @@ public class Player : MonoBehaviour
 
         float translation = Input.GetAxis("Horizontal");
         
-        // Make it move 10 meters per second instead of 10 meters per frame...
         translation *= Time.deltaTime * speed;
-
-        // Move translation along the object's z-axis
-        //transform.Translate(0, 0, translation);
+        
         forces.x += translation;
         forces.y += gravity*Time.deltaTime;
 
@@ -46,31 +45,24 @@ public class Player : MonoBehaviour
         if (controller.isGrounded && Input.GetButtonDown("Jump"))
         {
             StartCoroutine(Jump());
-            Debug.Log("hey"     );
-
-            //m_Rigidbody.AddForce(new Vector3(0, jump_force, 0));
         }
 
         if (Input.GetButtonDown("Interact"))
         {
-            Debug.Log("Interaction");
-            Interaction();
+            foreach(Collider c in Physics.OverlapBox(transform.position, new Vector3(1, 1, 3)))
+            {
+                c.gameObject.GetComponent<Interactible>()?.Interact();
+            }
         }
-    }
-
-    void Interaction() {
-        // Récupérer tous les objets interactibles proches de nous !
-
-        // Si plusieurs, prendre le plus proche
-
     }
 
     IEnumerator Jump()
     {
-        float finish_time = Time.time + jump_time;
-        while (Time.time < finish_time)
+        float remaining_time = jump_time;
+        while (remaining_time > 0.0f)
         {
-            controller.Move(new Vector3(0,jump_force*Time.deltaTime,0));
+            controller.Move(new Vector3(0,jump_force*Time.deltaTime*jump_coef*remaining_time,0));
+            remaining_time -= Time.deltaTime;
             yield return null;
         }
     }

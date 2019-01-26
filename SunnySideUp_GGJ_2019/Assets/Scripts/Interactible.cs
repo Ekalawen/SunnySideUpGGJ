@@ -5,6 +5,7 @@ using UnityEngine;
 public class Interactible : MonoBehaviour {
 
     public virtual void Interact() {
+        Debug.Log("Interface Interact");
     }
 
 }
