@@ -14,14 +14,16 @@ public class Player : MonoBehaviour
     Vector3 forces;
     Rigidbody m_Rigidbody;
     CharacterController controller;
+    
 
     // Start is called before the first frame update
     void Start()
     {
         m_Rigidbody = GetComponent<Rigidbody>();
-        controller = GetComponent<CharacterController>();
         m_Rigidbody.constraints = RigidbodyConstraints.FreezePositionX;
         m_Rigidbody.constraints = RigidbodyConstraints.FreezeRotation;
+
+        controller = GetComponent<CharacterController>();
     }
 
     // Update is called once per frame
@@ -45,10 +47,11 @@ public class Player : MonoBehaviour
 
         if (Input.GetButtonDown("Interact"))
         {
-            Debug.Log("Interaction");
+            foreach(Collider c in Physics.OverlapBox(transform.position, new Vector3(1, 1, 3)))
+            {
+                c.gameObject.GetComponent<Interactible>?.Interact();
+            }
         }
-
-
     }
 
     IEnumerator Jump()
