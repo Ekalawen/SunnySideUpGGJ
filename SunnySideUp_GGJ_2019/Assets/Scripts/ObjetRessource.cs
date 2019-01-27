@@ -45,6 +45,7 @@ public class ObjetRessource : Interactible {
     }
 
     void Miner() {
+        this.GetComponent<AudioSource>().Play();
         if (quantiteActuelle > 0) {
             int valIncrement = player.inventaire.GetIncrementRessource(type);
             player.inventaire.Add(type, valIncrement);

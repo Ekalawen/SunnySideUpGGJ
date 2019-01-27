@@ -77,6 +77,7 @@ public class DestructibleBloc : Interactible
 
     void Miner()
     {
+        this.GetComponent<AudioSource>().Play();
         if (resistance > 1)
         {
             resistance--;
