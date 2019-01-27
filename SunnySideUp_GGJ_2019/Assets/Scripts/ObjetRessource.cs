@@ -43,7 +43,8 @@ public class ObjetRessource : Interactible {
 
     void Miner() {
         if (quantiteActuelle > 0) {
-            player.inventaire.Add(type, 1);
+            int valIncrement = player.inventaire.GetIncrementRessource(type);
+            player.inventaire.Add(type, valIncrement);
             quantiteActuelle--;
             text.text = "" + quantiteActuelle;
 

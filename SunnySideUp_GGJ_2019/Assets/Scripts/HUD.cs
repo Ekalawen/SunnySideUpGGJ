@@ -27,8 +27,8 @@ public class HUD : MonoBehaviour
         if (!player || !player.enabled)
             return;
 
-        boisValue.text = ""+player.inventaire.Get(ObjetRessource.TypeRessource.BOIS);
-        ferValue.text = ""+player.inventaire.Get(ObjetRessource.TypeRessource.FER);
+        boisValue.text = ""+player.inventaire.Get(ObjetRessource.TypeRessource.BOIS) + " / " + player.inventaire.GetValMax(ObjetRessource.TypeRessource.BOIS);
+        ferValue.text = ""+player.inventaire.Get(ObjetRessource.TypeRessource.FER) + " / " + player.inventaire.GetValMax(ObjetRessource.TypeRessource.BOIS);
 
         MomentDeLaJournee.text = gameManager.GetTextHeure();
         TempsAvantChangementHeure.text = "" + gameManager.TempsAvantChangementHeure().ToString("F2");
