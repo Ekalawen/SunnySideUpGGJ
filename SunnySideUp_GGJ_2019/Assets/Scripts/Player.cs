@@ -14,11 +14,29 @@ public class Player : MonoBehaviour
     Vector3 forces;
     Rigidbody m_Rigidbody;
     CharacterController controller;
+    public GameObject stepBox;
     [HideInInspector]
     public Inventaire inventaire;
     private GameManager gameManager;
+    private float stepTimer;
 
     private bool blockMove;
+
+    private void Step(float translation) {
+        float pistonPos;
+        stepTimer += translation;
+        stepTimer = stepTimer % 100000;
+
+        pistonPos = Mathf.Round(Mathf.PingPong(stepTimer, 10.0f)) / 20.0f - 0.25f;
+
+        Vector3 newPos = stepBox.transform.localPosition;
+        newPos.y = pistonPos;
+        stepBox.transform.localPosition = newPos;
+
+//        stepBox.transform.position.y = pistonPos;
+//stepBox.transform.Translate(new Vector3(0.0f,Mathf.PingPong(stepTimer,0.5f),0.0f));
+        Debug.Log("Move: " + translation + " | Piston: " + pistonPos + " | BoxPos: " + stepBox.transform.localPosition.y);
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -33,6 +51,11 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Prévention pour ne pas se faire pousser ^^
+        Vector3 pos = transform.position;
+        pos.z = 0.0f;
+        transform.position = pos;
+
         if (!blockMove)
         {
             float translation = Input.GetAxis("Horizontal");
@@ -45,7 +68,6 @@ public class Player : MonoBehaviour
                 forces.y += Input.GetAxis("Vertical") * Time.deltaTime * speed;
             }
 
-
             if (ShouldApplyGravity())
             {
                 forces.y += gravity * Time.deltaTime;
@@ -56,6 +78,7 @@ public class Player : MonoBehaviour
             }
 
             controller.Move(forces);
+            Step(translation);
         }
 
         if (Input.GetButtonDown("Interact"))
