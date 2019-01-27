@@ -77,10 +77,10 @@ public class ObjectConstructible : Interactible
                 player.inventaire.Use(ObjetRessource.TypeRessource.BOIS, priceBois);
                 player.inventaire.Use(ObjetRessource.TypeRessource.FER, priceFer);
 
-                audioSource.Play();
-
                 // Puis on peut construire :)
                 Construire();
+
+                audioSource.Play();
             }
         }
     }
