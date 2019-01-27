@@ -6,9 +6,12 @@ public class Nacelle : Interactible
 {
     public GameObject start, end;
     public float vitesse;
+    public Transform positionPlayer;
 
     private Vector3 direction;
     private Player player;
+    private bool bIsMoving = false;
+
     
 
     // Start is called before the first frame update
@@ -29,34 +32,39 @@ public class Nacelle : Interactible
 
     public override void Interact()
     {
-        Debug.Log("Interact");
         base.Interact();
-        Debug.Log("Interact1");
-        StartCoroutine(sliderNacelle());
-        Debug.Log("Interact3");
-
+        if (!bIsMoving)
+        {
+            StartCoroutine(sliderNacelle());
+        }
     }
 
     IEnumerator sliderNacelle()
     {
+        bIsMoving = true;
+        // L'allez
         Debug.Log("sliderNacelle");
-        Transform t = player.transform;
+        Transform t = player.transform.parent;
         player.transform.SetParent(transform);
         player.setBlockMove(true);
-        float deplacementLineaire = 0.0f;
-        Vector3 vecDepLin = Vector3.Normalize(new Vector3(1.0f, 0.0f, 0.0f) * direction[0]);
+        player.transform.position = positionPlayer.position;
         while(Vector3.Distance( end.transform.position, transform.position) > 0.6f)
         {
             CharacterController cc = GetComponent<CharacterController>();
-            //Debug.Log("" + Vector3.Distance(end.transform.position, transform.position));
-            if (deplacementLineaire < 2)
-            {                
-                cc.Move(vitesse * direction * Time.deltaTime);
-            }
             cc.Move(vitesse * direction * Time.deltaTime);
             yield return null;
         }
         player.transform.SetParent(t);
-        player.setBlockMove(false);        
+        player.setBlockMove(false);
+
+        // Retour !
+        while(Vector3.Distance( start.transform.position, transform.position) > 0.6f)
+        {
+            CharacterController cc = GetComponent<CharacterController>();
+            cc.Move(vitesse * direction * Time.deltaTime * -1);
+            yield return null;
+        }
+
+        bIsMoving = false;
     }
 }
