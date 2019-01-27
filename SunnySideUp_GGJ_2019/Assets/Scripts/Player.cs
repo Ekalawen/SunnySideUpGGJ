@@ -25,9 +25,9 @@ public class Player : MonoBehaviour
     private void Step(float translation) {
         float pistonPos;
         stepTimer += translation;
-        stepTimer = stepTimer % 100000;
+        stepTimer = stepTimer % 1000.0f;
 
-        pistonPos = Mathf.Round(Mathf.PingPong(stepTimer, 10.0f)) / 20.0f - 0.25f;
+        pistonPos = (Mathf.Round(Mathf.PingPong(stepTimer*10, 20)) * 0.025f) - 0.85f;
 
         Vector3 newPos = stepBox.transform.localPosition;
         newPos.y = pistonPos;
@@ -35,7 +35,7 @@ public class Player : MonoBehaviour
 
 //        stepBox.transform.position.y = pistonPos;
 //stepBox.transform.Translate(new Vector3(0.0f,Mathf.PingPong(stepTimer,0.5f),0.0f));
-        // Debug.Log("Move: " + translation + " | Piston: " + pistonPos + " | BoxPos: " + stepBox.transform.localPosition.y);
+        //Debug.Log("Move: " + translation + " | Piston: " + pistonPos + " | BoxPos: " + stepBox.transform.localPosition.y);
     }
 
     // Start is called before the first frame update
@@ -51,6 +51,9 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!controller.enabled)
+            return;
+
         // Prévention pour ne pas se faire pousser ^^
         Vector3 pos = transform.position;
         pos.z = 0.0f;

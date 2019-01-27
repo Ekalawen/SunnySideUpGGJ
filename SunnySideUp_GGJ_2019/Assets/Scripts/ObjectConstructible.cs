@@ -19,6 +19,7 @@ public class ObjectConstructible : Interactible
     private Etat etat;
     private Player player;
     private GameManager gameManager;
+    private AudioSource audioSource;
 
     public bool no_gravity = false;
     public bool y_axis = false;
@@ -27,6 +28,7 @@ public class ObjectConstructible : Interactible
     void Start() {
         player = FindObjectOfType<Player>();
         gameManager = FindObjectOfType<GameManager>();
+        audioSource = GetComponent<AudioSource>();
 
         // Mettre dans le bon état
         SetEtat(Etat.NON_CONSTRUIT);
@@ -74,6 +76,8 @@ public class ObjectConstructible : Interactible
                 // débitter le player
                 player.inventaire.Use(ObjetRessource.TypeRessource.BOIS, priceBois);
                 player.inventaire.Use(ObjetRessource.TypeRessource.FER, priceFer);
+
+                audioSource.Play();
 
                 // Puis on peut construire :)
                 Construire();

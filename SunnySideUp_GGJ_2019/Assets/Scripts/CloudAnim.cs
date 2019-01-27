@@ -22,6 +22,8 @@ public class CloudAnim : MonoBehaviour
     internal void MoveCloudsStart()
     {
         m_anim.SetTrigger("StartCloud");
+        this.gameObject.SetActive(true);
+        m_wind.SetActive(true);
     }
 
     public void TriggerStopWind(float theValue)
