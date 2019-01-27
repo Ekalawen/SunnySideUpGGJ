@@ -88,6 +88,10 @@ public class ObjectConstructible : Interactible
         construction.SetActive(true);
 
         etat = Etat.CONSTRUIT;
+
+        // On desactive le collider de ce script pour permettre aux objets suivants d'etre interactibles !
+        if(!no_gravity && ! y_axis)
+            gameObject.GetComponent<BoxCollider>().enabled = false;
     }
 
     // Permet de savoir si l'on peut construire cette construction
