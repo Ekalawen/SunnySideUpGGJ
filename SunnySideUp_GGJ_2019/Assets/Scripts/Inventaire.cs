@@ -16,7 +16,7 @@ public class Inventaire {
         valeursMax = new List<int>();
         incrementRessource = new List<int>();
         for(int i = 0; i < nbTypesRessources; i++) {
-            valeurs.Add(1000);
+            valeurs.Add(0);
             valeursMax.Add(15);
             incrementRessource.Add(1);
         }
