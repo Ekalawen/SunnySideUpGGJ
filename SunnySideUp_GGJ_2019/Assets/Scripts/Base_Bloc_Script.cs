@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Base_Bloc_Script : MonoBehaviour
 {
+    public LOVs.FloorType floorType = LOVs.FloorType.Default;
+
     // Start is called before the first frame update
     void Start()
     {
