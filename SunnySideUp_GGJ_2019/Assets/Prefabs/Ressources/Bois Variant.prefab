@@ -7,11 +7,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2893856912569510195, guid: fed770189360da541abf2ee5ff3eb88a,
-        type: 3}
-      propertyPath: m_Name
-      value: Bois Variant
-      objectReference: {fileID: 0}
     - target: {fileID: 459990982304823372, guid: fed770189360da541abf2ee5ff3eb88a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -67,6 +62,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2893856912569510195, guid: fed770189360da541abf2ee5ff3eb88a,
+        type: 3}
+      propertyPath: m_Name
+      value: Bois Variant
+      objectReference: {fileID: 0}
     - target: {fileID: 2070584342059669992, guid: fed770189360da541abf2ee5ff3eb88a,
         type: 3}
       propertyPath: quantite
@@ -112,6 +112,16 @@ PrefabInstance:
       propertyPath: prixBois
       value: 
       objectReference: {fileID: 7093245699246494869}
+    - target: {fileID: 3384440112946657543, guid: fed770189360da541abf2ee5ff3eb88a,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 586701795efed354ab1273e21bf7e1c0, type: 3}
+    - target: {fileID: 794755665346998848, guid: fed770189360da541abf2ee5ff3eb88a,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 586701795efed354ab1273e21bf7e1c0, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fed770189360da541abf2ee5ff3eb88a, type: 3}
 --- !u!4 &186195767127219823 stripped

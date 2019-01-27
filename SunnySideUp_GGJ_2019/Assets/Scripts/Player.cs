@@ -33,6 +33,8 @@ public class Player : MonoBehaviour
         newPos.y = pistonPos;
         stepBox.transform.localPosition = newPos;
 
+//        stepBox.transform.position.y = pistonPos;
+//stepBox.transform.Translate(new Vector3(0.0f,Mathf.PingPong(stepTimer,0.5f),0.0f));
         //Debug.Log("Move: " + translation + " | Piston: " + pistonPos + " | BoxPos: " + stepBox.transform.localPosition.y);
     }
 
@@ -49,6 +51,9 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!controller.enabled)
+            return;
+
         // Prévention pour ne pas se faire pousser ^^
         Vector3 pos = transform.position;
         pos.z = 0.0f;
