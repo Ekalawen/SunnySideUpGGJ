@@ -7,12 +7,15 @@ public class Inventaire {
 
     // Une liste du nombre de la quantité de ressources pour chaque type. Dans l'ordre de l'énumération.
     List<int> valeurs;
+    List<int> valeursMax;
 
     public Inventaire() {
         // On remplit la liste de valeurs vides
         valeurs = new List<int>();
+        valeursMax = new List<int>();
         for(int i = 0; i < nbTypesRessources; i++) {
-            valeurs.Add(1000);
+            valeurs.Add(150);
+            valeursMax.Add(15);
         }
     }
 
@@ -22,8 +25,11 @@ public class Inventaire {
     }
 
     public void Add(ObjetRessource.TypeRessource type, int quantite) {
-        int nb = (int)type;
-        valeurs[nb] += quantite;
+        if (Get(type) < GetValMax(type))
+        {
+            int nb = (int)type;
+            valeurs[nb] += quantite;
+        }
     }
 
     public bool CanUse(ObjetRessource.TypeRessource type, int quantite) {
@@ -38,5 +44,14 @@ public class Inventaire {
         } else {
             throw new System.Exception("Pas assez de ressources !");
         }
+    }
+
+    public int GetValMax(ObjetRessource.TypeRessource type) {
+        int nb = (int)type;
+        return valeursMax[nb];
+    }
+    public void SetValMax(ObjetRessource.TypeRessource type, int newVal) {
+        int nb = (int)type;
+        valeursMax[nb] = newVal;
     }
 }
