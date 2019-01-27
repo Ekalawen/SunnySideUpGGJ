@@ -109,7 +109,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 437845fc4b6f44f43ae3d2867dbc13e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  floorType: 0
+  floorType: 1
 --- !u!114 &6405497570311463022
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -125,6 +125,7 @@ MonoBehaviour:
   meshIntact: {fileID: 4566584999807597217}
   meshEndommage: {fileID: 4566584999252202515}
   meshBeaucoupEndommage: {fileID: 4566584999350665956}
+  breakAudioSrce: {fileID: 321110054798554778}
   resistance: 3
   distanceVisibiliteResistance: 3
   text: {fileID: 2810064975492867392}
