@@ -55,7 +55,7 @@ public class StartCamera : MonoBehaviour
         m_anim.StopPlayback();
         m_anim.enabled = false;
         m_startCamera.transform.parent = m_player.transform;
-        m_startCamera.transform.localPosition = Vector3.zero;
+        m_startCamera.transform.localPosition = new Vector3(0, 0, -5.7f);
         PlayerAnim playerAnim = m_player.GetComponentInChildren<PlayerAnim>();
         playerAnim.FallFromTop();
     }
