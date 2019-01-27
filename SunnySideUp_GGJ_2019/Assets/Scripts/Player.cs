@@ -33,19 +33,19 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float translation = Input.GetAxis("Horizontal");
-        forces = new Vector3();
-        translation *= Time.deltaTime * speed;
-
-        forces.x += translation;
-        if (ShouldAllowYAxis())
-        {
-            forces.y += Input.GetAxis("Vertical") * Time.deltaTime * speed;
-        }
-        
-
         if (!blockMove)
         {
+            float translation = Input.GetAxis("Horizontal");
+            forces = new Vector3();
+            translation *= Time.deltaTime * speed;
+
+            forces.x += translation;
+            if (ShouldAllowYAxis())
+            {
+                forces.y += Input.GetAxis("Vertical") * Time.deltaTime * speed;
+            }
+
+
             if (ShouldApplyGravity())
             {
                 forces.y += gravity * Time.deltaTime;
@@ -54,11 +54,9 @@ public class Player : MonoBehaviour
             {
                 StartCoroutine(Jump());
             }
+
+            controller.Move(forces);
         }
-        
-
-
-        controller.Move(forces);
 
         if (Input.GetButtonDown("Interact"))
         {
@@ -93,7 +91,7 @@ public class Player : MonoBehaviour
 
     void Interaction() {
         List<Interactible> interactibles = new List<Interactible>();
-        foreach(Collider c in Physics.OverlapSphere(transform.position, 2.0f))
+        foreach(Collider c in Physics.OverlapSphere(transform.position, 2.5f))
         {
             if (c.gameObject.GetComponent<Interactible>() != null)
             {
