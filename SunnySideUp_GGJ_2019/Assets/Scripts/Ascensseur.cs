@@ -24,7 +24,9 @@ public class Ascensseur : Interactible
     //Transform nacelle;
     public GameObject nacelle;
     public float speed = 1.0f;
-    float min, max;
+
+    public Transform Up, Down;
+    private float min, max;
 
     // Start is called before the first frame update
     void Start()
@@ -37,8 +39,10 @@ public class Ascensseur : Interactible
         // Mettre à jour les prix
         price.SetupPrix(priceBois, priceFer);
 
-        min = transform.position.y - (transform.localScale.y * 0.5f);
-        max = transform.position.y + (transform.localScale.y * 0.5f);
+        min = Down.transform.position.y;
+        max = Up.transform.position.y;
+        Debug.Log("Min = " + min);
+        Debug.Log("Max = " + max);
 
         Vector3 v = nacelle.transform.position;
         v.y = min;
@@ -122,7 +126,8 @@ public class Ascensseur : Interactible
     // Permet de savoir si l'on peut construire cette construction
     public bool peutConstruire()
     {
-        return player.inventaire.CanUse(ObjetRessource.TypeRessource.BOIS, priceBois)
+        return player.transform.position.y >= transform.position.y - 3.0f
+        && player.inventaire.CanUse(ObjetRessource.TypeRessource.BOIS, priceBois)
         && player.inventaire.CanUse(ObjetRessource.TypeRessource.FER, priceFer);
     }
 
