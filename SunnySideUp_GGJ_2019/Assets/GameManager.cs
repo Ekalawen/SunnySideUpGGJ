@@ -9,6 +9,9 @@ public class GameManager : MonoBehaviour
 
     public float dureeJour = 10.0f; // 60.0f * 1.5f; // 1:30 de jour !
     public float dureeNuit = 10.0f; // 60.0f * 1.5f; // 1:30 de nuit !
+    public float dureeAube = 3.0f; // 60.0f * 1.5f; // 1:30 de jour !
+    public float dureeCrepuscule = 3.0f; // 60.0f * 1.5f; // 1:30 de nuit !
+    private float debutLuminosite = 1.0f;
     public Light directionalLight;
 
     [HideInInspector]
@@ -44,66 +47,79 @@ public class GameManager : MonoBehaviour
     }
 
     void UpdateHeure() {
-        if(heure == Heure.JOUR) {
-            if(Time.time - debutHeure > dureeJour) {
-                ChangerHeure(Heure.NUIT);
-            }
-        } else if (heure == Heure.NUIT) {
-            if(Time.time - debutHeure > dureeNuit) {
-                ChangerHeure(Heure.JOUR);
-            }
+        float avancement, val;
+        switch(heure)
+        {
+            case Heure.AUBE:
+                if(Time.time - debutHeure > dureeAube) {
+                    ChangerHeure(Heure.JOUR);
+                }
+                avancement = (Time.time - debutHeure) / dureeAube;
+                val = debutLuminosite + (1.0f - debutLuminosite) * avancement; ;
+                RenderSettings.ambientIntensity = val;
+                directionalLight.intensity = val;
+                break;
+            case Heure.CREPUSCULE: 
+                if(Time.time - debutHeure > dureeCrepuscule) {
+                    ChangerHeure(Heure.NUIT);
+                }
+                avancement = (Time.time - debutHeure) / dureeCrepuscule;
+                val = debutLuminosite - debutLuminosite * avancement; ;
+                RenderSettings.ambientIntensity = val;
+                directionalLight.intensity = val;
+                break;
+            case Heure.JOUR: 
+                if(Time.time - debutHeure > dureeJour) {
+                    ChangerHeure(Heure.CREPUSCULE);
+                }
+                RenderSettings.ambientIntensity = 1.0f;
+                directionalLight.intensity = 1.0f;
+                break;
+            case Heure.NUIT: 
+                if(Time.time - debutHeure > dureeNuit) {
+                    ChangerHeure(Heure.AUBE);
+                }
+                RenderSettings.ambientIntensity = 0.0f;
+                directionalLight.intensity = 0.0f;
+                break;
         }
+
     }
 
     public void ChangerHeure(Heure nouvelleHeure) {
-        if(nouvelleHeure == Heure.JOUR) {
-            StartCoroutine(FaireLeverLeJour());
-        } else {
-            StartCoroutine(FaireTomberLaNuit());
+        debutHeure = Time.time;
+        debutLuminosite = RenderSettings.ambientIntensity;
+        heure = nouvelleHeure;
+
+        // Si le levé du jour alors on fait réapparaître les ressources !
+        if(nouvelleHeure == Heure.AUBE)
+        {
+            foreach (ObjetRessource o in objects_to_respawn)
+            {
+                o.Respawn();
+            }
         }
     }
 
-    IEnumerator FaireTomberLaNuit() {
-        heure = Heure.CREPUSCULE;
-        float duree = 10.0f;
-        float debut = Time.time;
-        while (heure == Heure.CREPUSCULE && Time.time - debut < duree)
+    public string GetTextHeure() {
+        switch(heure)
         {
-            float avancement = (Time.time - debut) / duree;
-            RenderSettings.ambientIntensity = 1.0f - avancement;
-            directionalLight.intensity = 1.0f - avancement;
-            yield return null;
-        }
-        if(heure == Heure.CREPUSCULE)
-        {
-            debutHeure = Time.time;
-            heure = Heure.NUIT;
+            case Heure.AUBE: return "Aube";
+            case Heure.CREPUSCULE: return "Crépuscule";
+            case Heure.JOUR: return "Jour";
+            case Heure.NUIT: return "Nuit";
+            default: return "Je suis un canard <3";
         }
     }
 
-
-    IEnumerator FaireLeverLeJour() {
-        heure = Heure.AUBE;
-        float duree = 10.0f;
-        float debut = Time.time;
-        float avancementDebut = RenderSettings.ambientIntensity;
-        foreach (ObjetRessource o in objects_to_respawn)
+    public float TempsAvantChangementHeure() {
+        switch(heure)
         {
-            o.Respawn();
-        }
-
-        while (heure == Heure.AUBE && Time.time - debut < duree)
-        {
-            float avancement = (Time.time - debut) / duree;
-            RenderSettings.ambientIntensity = avancementDebut + avancement * (1 - avancementDebut);
-            directionalLight.intensity = avancementDebut + avancement * (1 - avancementDebut);
-            yield return null;
-        }
-
-        if (heure == Heure.AUBE)
-        {
-            heure = Heure.JOUR;
-            debutHeure = Time.time;
+            case Heure.AUBE: return dureeAube - (Time.time - debutHeure);
+            case Heure.CREPUSCULE: return dureeCrepuscule - (Time.time - debutHeure);
+            case Heure.JOUR: return dureeJour - (Time.time - debutHeure);
+            case Heure.NUIT: return dureeNuit - (Time.time - debutHeure);
+            default: return -3.14159f;
         }
     }
 
