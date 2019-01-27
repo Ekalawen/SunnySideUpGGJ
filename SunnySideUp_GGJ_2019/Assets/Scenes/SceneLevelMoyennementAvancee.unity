@@ -8754,6 +8754,16 @@ PrefabInstance:
       propertyPath: prix
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 7919010799841407061, guid: 8805062eb72b1614fa3e05abc498491a,
+        type: 3}
+      propertyPath: priceBois
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7919010799841407061, guid: 8805062eb72b1614fa3e05abc498491a,
+        type: 3}
+      propertyPath: priceFer
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 5464747758714607577, guid: 8805062eb72b1614fa3e05abc498491a,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -18147,6 +18157,16 @@ PrefabInstance:
       propertyPath: prix
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 7919010799841407061, guid: 8805062eb72b1614fa3e05abc498491a,
+        type: 3}
+      propertyPath: priceBois
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 7919010799841407061, guid: 8805062eb72b1614fa3e05abc498491a,
+        type: 3}
+      propertyPath: priceFer
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 5464747758714607577, guid: 8805062eb72b1614fa3e05abc498491a,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -24946,6 +24966,16 @@ PrefabInstance:
         type: 3}
       propertyPath: prix
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7919010799841407061, guid: 8805062eb72b1614fa3e05abc498491a,
+        type: 3}
+      propertyPath: priceBois
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7919010799841407061, guid: 8805062eb72b1614fa3e05abc498491a,
+        type: 3}
+      propertyPath: priceFer
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 5464747758714607577, guid: 8805062eb72b1614fa3e05abc498491a,
         type: 3}
@@ -42867,6 +42897,16 @@ PrefabInstance:
       propertyPath: prix
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 7919010799841407061, guid: 8805062eb72b1614fa3e05abc498491a,
+        type: 3}
+      propertyPath: priceBois
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 7919010799841407061, guid: 8805062eb72b1614fa3e05abc498491a,
+        type: 3}
+      propertyPath: priceFer
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 5464747758714607577, guid: 8805062eb72b1614fa3e05abc498491a,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -43535,6 +43575,16 @@ PrefabInstance:
         type: 3}
       propertyPath: prix
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7919010799841407061, guid: 8805062eb72b1614fa3e05abc498491a,
+        type: 3}
+      propertyPath: priceBois
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7919010799841407061, guid: 8805062eb72b1614fa3e05abc498491a,
+        type: 3}
+      propertyPath: priceFer
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 5464747758714607577, guid: 8805062eb72b1614fa3e05abc498491a,
         type: 3}
@@ -44911,6 +44961,16 @@ PrefabInstance:
         type: 3}
       propertyPath: prix
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7919010799841407061, guid: 8805062eb72b1614fa3e05abc498491a,
+        type: 3}
+      propertyPath: priceBois
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7919010799841407061, guid: 8805062eb72b1614fa3e05abc498491a,
+        type: 3}
+      propertyPath: priceFer
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 5464747758714607577, guid: 8805062eb72b1614fa3e05abc498491a,
         type: 3}
@@ -57068,6 +57128,21 @@ PrefabInstance:
       propertyPath: prix
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 7919010799841407061, guid: 8805062eb72b1614fa3e05abc498491a,
+        type: 3}
+      propertyPath: speed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7919010799841407061, guid: 8805062eb72b1614fa3e05abc498491a,
+        type: 3}
+      propertyPath: priceBois
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 7919010799841407061, guid: 8805062eb72b1614fa3e05abc498491a,
+        type: 3}
+      propertyPath: priceFer
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 5464747758714607577, guid: 8805062eb72b1614fa3e05abc498491a,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -57173,6 +57248,16 @@ PrefabInstance:
         type: 3}
       propertyPath: prix
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7919010799841407061, guid: 8805062eb72b1614fa3e05abc498491a,
+        type: 3}
+      propertyPath: priceBois
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7919010799841407061, guid: 8805062eb72b1614fa3e05abc498491a,
+        type: 3}
+      propertyPath: priceFer
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 5464747758714607577, guid: 8805062eb72b1614fa3e05abc498491a,
         type: 3}
