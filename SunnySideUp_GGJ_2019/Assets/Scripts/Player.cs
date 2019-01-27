@@ -25,9 +25,9 @@ public class Player : MonoBehaviour
     private void Step(float translation) {
         float pistonPos;
         stepTimer += translation;
-        stepTimer = stepTimer % 100000;
+        stepTimer = stepTimer % 1000.0f;
 
-        pistonPos = Mathf.Round(Mathf.PingPong(stepTimer, 10.0f)) / 20.0f - 0.25f;
+        pistonPos = (Mathf.Round(Mathf.PingPong(stepTimer*10, 20)) * 0.025f) - 0.85f;
 
         Vector3 newPos = stepBox.transform.localPosition;
         newPos.y = pistonPos;
