@@ -51,6 +51,7 @@ public class Nacelle : Interactible
             direction = Vector3.Normalize(end.transform.position - transform.position);
             CharacterController cc = GetComponent<CharacterController>();
             cc.Move(vitesse * direction * Time.deltaTime);
+            player.transform.position = positionPlayer.position;
             yield return null;
         }
         player.transform.SetParent(t);

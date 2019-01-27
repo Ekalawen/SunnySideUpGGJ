@@ -35,7 +35,7 @@ public class Player : MonoBehaviour
 
 //        stepBox.transform.position.y = pistonPos;
 //stepBox.transform.Translate(new Vector3(0.0f,Mathf.PingPong(stepTimer,0.5f),0.0f));
-        Debug.Log("Move: " + translation + " | Piston: " + pistonPos + " | BoxPos: " + stepBox.transform.localPosition.y);
+        // Debug.Log("Move: " + translation + " | Piston: " + pistonPos + " | BoxPos: " + stepBox.transform.localPosition.y);
     }
 
     // Start is called before the first frame update
@@ -114,7 +114,7 @@ public class Player : MonoBehaviour
 
     void Interaction() {
         List<Interactible> interactibles = new List<Interactible>();
-        foreach(Collider c in Physics.OverlapSphere(transform.position, 2.5f))
+        foreach(Collider c in Physics.OverlapSphere(transform.position, 1.5f))
         {
             if (c.gameObject.GetComponent<Interactible>() != null)
             {
