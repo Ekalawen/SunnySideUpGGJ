@@ -92,7 +92,8 @@ public class ObjectConstructible : Interactible
 
     // Permet de savoir si l'on peut construire cette construction
     public bool peutConstruire() {
-        return player.inventaire.CanUse(ObjetRessource.TypeRessource.BOIS, priceBois)
+        return etat == Etat.NON_CONSTRUIT
+        && player.inventaire.CanUse(ObjetRessource.TypeRessource.BOIS, priceBois)
         && player.inventaire.CanUse(ObjetRessource.TypeRessource.FER, priceFer);
     }
 
