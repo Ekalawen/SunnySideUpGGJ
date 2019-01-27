@@ -5,7 +5,9 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public float speed = 10.0f;
+    private float speed_mod = 0.0f;
     public float jump_force = 12.0f;
+    private float jump_force_mod = 0.0f;
     public float jump_time = 0.5f;
     public float jump_coef = 2.8f;
 
@@ -19,6 +21,34 @@ public class Player : MonoBehaviour
     private GameManager gameManager;
 
     private bool blockMove;
+
+    //Pour les modificateur de vitesse
+    public float real_speed()
+    {
+        return (speed + speed_mod);
+    }
+    public void addToSpeedMod(float mod)
+    {
+        speed_mod += mod;
+    }
+    public void set_speed_mod(float mod)
+    {
+        speed_mod = mod;
+    }
+
+    //Pour la force du saut
+    public float real_jump()
+    {
+        return (jump_force + jump_force_mod);
+    }
+    public void addToJumpMod(float mod)
+    {
+        jump_force_mod += mod;
+    }
+    public void set_jump_mod(float mod)
+    {
+        jump_force_mod = mod;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -35,12 +65,12 @@ public class Player : MonoBehaviour
     {
         float translation = Input.GetAxis("Horizontal");
         forces = new Vector3();
-        translation *= Time.deltaTime * speed;
+        translation *= Time.deltaTime * real_speed();
 
         forces.x += translation;
         if (ShouldAllowYAxis())
         {
-            forces.y += Input.GetAxis("Vertical") * Time.deltaTime * speed;
+            forces.y += Input.GetAxis("Vertical") * Time.deltaTime * real_speed();
         }
         
 
@@ -126,7 +156,7 @@ public class Player : MonoBehaviour
         float remaining_time = jump_time;
         while (remaining_time > 0.0f)
         {
-            controller.Move(new Vector3(0,jump_force*Time.deltaTime*jump_coef*remaining_time,0));
+            controller.Move(new Vector3(0, real_jump() * Time.deltaTime*jump_coef*remaining_time,0));
             remaining_time -= Time.deltaTime;
             yield return null;
         }
