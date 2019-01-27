@@ -5,8 +5,6 @@ using UnityEngine;
 
 public class StartCamera : MonoBehaviour
 {
-    public Camera m_mainCamera;
-
     GameObject m_player;
     GameObject m_clouds;
     GameObject m_wind;
@@ -33,8 +31,6 @@ public class StartCamera : MonoBehaviour
         m_startCamera = GetComponentInChildren<Camera>();
         m_startCamera.enabled = true;
 
-        m_mainCamera.enabled = false;
-
         m_startButton = GameObject.Find("Start");
     }
 
@@ -56,6 +52,10 @@ public class StartCamera : MonoBehaviour
     public void TriggerPlayerFallFromTop(float theValue)
     {
         Debug.Log("Fall from top");
+        m_anim.StopPlayback();
+        m_anim.enabled = false;
+        m_startCamera.transform.parent = m_player.transform;
+        m_startCamera.transform.localPosition = new Vector3(0, 0, -5.7f);
         PlayerAnim playerAnim = m_player.GetComponentInChildren<PlayerAnim>();
         playerAnim.FallFromTop();
     }
