@@ -19,11 +19,13 @@ public class DestructibleBloc : Interactible
 
     private Player player;
     private GameManager gameManager;
+    private AudioSource audioSource;
 
     // Start is called before the first frame update
     void Start() {
         player = FindObjectOfType<Player>();
         gameManager = FindObjectOfType<GameManager>();
+        audioSource = GetComponent<AudioSource>();
 
         isDestroyed = false;
 
@@ -68,12 +70,14 @@ public class DestructibleBloc : Interactible
 
         if (gameManager.heure != GameManager.Heure.NUIT)
         {
+            audioSource.Play();
             Miner();
         }
     }
 
     void Miner()
     {
+        this.GetComponent<AudioSource>().Play();
         if (resistance > 1)
         {
             resistance--;
