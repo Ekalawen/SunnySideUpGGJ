@@ -33,6 +33,11 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Prévention pour ne pas se faire pousser ^^
+        Vector3 pos = transform.position;
+        pos.z = 0.0f;
+        transform.position = pos;
+
         if (!blockMove)
         {
             float translation = Input.GetAxis("Horizontal");
