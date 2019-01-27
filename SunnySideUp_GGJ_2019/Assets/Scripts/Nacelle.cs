@@ -20,8 +20,6 @@ public class Nacelle : Interactible
 
         player = FindObjectOfType<Player>();
 
-        //transform.position = start.transform.position - new Vector3(0.0f, 1.0f, 0.0f);
-        direction = Vector3.Normalize(end.transform.position - start.transform.position);
     }
 
     // Update is called once per frame
@@ -42,7 +40,7 @@ public class Nacelle : Interactible
     IEnumerator sliderNacelle()
     {
         bIsMoving = true;
-        // L'allez
+        // Aller !
         Debug.Log("sliderNacelle");
         Transform t = player.transform.parent;
         player.transform.SetParent(transform);
@@ -50,6 +48,7 @@ public class Nacelle : Interactible
         player.transform.position = positionPlayer.position;
         while(Vector3.Distance( end.transform.position, transform.position) > 0.6f)
         {
+            direction = Vector3.Normalize(end.transform.position - transform.position);
             CharacterController cc = GetComponent<CharacterController>();
             cc.Move(vitesse * direction * Time.deltaTime);
             yield return null;
@@ -60,8 +59,9 @@ public class Nacelle : Interactible
         // Retour !
         while(Vector3.Distance( start.transform.position, transform.position) > 0.6f)
         {
+            direction = Vector3.Normalize(start.transform.position - transform.position);
             CharacterController cc = GetComponent<CharacterController>();
-            cc.Move(vitesse * direction * Time.deltaTime * -1);
+            cc.Move(vitesse * direction * Time.deltaTime);
             yield return null;
         }
 
