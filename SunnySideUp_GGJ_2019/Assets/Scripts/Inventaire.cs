@@ -8,14 +8,17 @@ public class Inventaire {
     // Une liste du nombre de la quantité de ressources pour chaque type. Dans l'ordre de l'énumération.
     List<int> valeurs;
     List<int> valeursMax;
+    List<int> incrementRessource;
 
     public Inventaire() {
         // On remplit la liste de valeurs vides
         valeurs = new List<int>();
         valeursMax = new List<int>();
+        incrementRessource = new List<int>();
         for(int i = 0; i < nbTypesRessources; i++) {
-            valeurs.Add(150);
+            valeurs.Add(0);
             valeursMax.Add(15);
+            incrementRessource.Add(1);
         }
     }
 
@@ -53,5 +56,13 @@ public class Inventaire {
     public void SetValMax(ObjetRessource.TypeRessource type, int newVal) {
         int nb = (int)type;
         valeursMax[nb] = newVal;
+    }
+    public int GetIncrementRessource(ObjetRessource.TypeRessource type) {
+        int nb = (int)type;
+        return incrementRessource[nb];
+    }
+    public void SetIncrementRessource(ObjetRessource.TypeRessource type, int newVal) {
+        int nb = (int)type;
+        incrementRessource[nb] = newVal;
     }
 }
