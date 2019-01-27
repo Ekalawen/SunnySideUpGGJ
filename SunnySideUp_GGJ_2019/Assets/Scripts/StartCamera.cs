@@ -9,6 +9,7 @@ public class StartCamera : MonoBehaviour
 
     GameObject m_player;
     GameObject m_clouds;
+    GameObject m_wind;
     Camera m_playerCamera;
     Camera m_startCamera;
     Animator m_anim;
@@ -19,6 +20,10 @@ public class StartCamera : MonoBehaviour
     {
         m_player = GameObject.FindWithTag("Player");
         m_clouds = GameObject.FindWithTag("Clouds");
+        m_wind = GameObject.FindWithTag("Wind");
+
+        m_clouds.SetActive(false);
+        m_wind.SetActive(false);
 
         m_playerCamera = m_player.GetComponentInChildren<Camera>();
         m_playerCamera.enabled = false;
@@ -42,6 +47,8 @@ public class StartCamera : MonoBehaviour
     {
         m_anim.SetTrigger("StartCamera");
         m_startButton.SetActive(false);
+        m_clouds.SetActive(true);
+        m_wind.SetActive(true);
         CloudAnim cloudAnim = m_clouds.GetComponentInChildren<CloudAnim>();
         cloudAnim.MoveCloudsStart();
     }
